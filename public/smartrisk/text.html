@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        
+        <title>Hello World</title>
+    </head>
+    <body onload="init();">
+        <div class="main">
+            <img class="logo img-responsive" src="img/snap_ton_compteur_logo.png"/>
+
+            <h3 class="align-center">Enregistrez vous</h3>
+            <form class="form-horizontal" role="form" method="POST" action="/auth/register"
+                  style="min-height: 200px;">
+                <input type="hidden" id="token" name="_token" value="">
+                <div class="row clearfix">
+                    <div class="btn-group col-xs-10 col-xs-offset-1">
+                        <button type="button" class="fs-12 btn btn-default dropdown-toggle btn-block selected-type"
+                                data-toggle="dropdown"
+                                aria-expanded="false">
+                            <span class="text">Selectionner votre compteur </span><span class="caret"></span>
+                        </button>
+                        <ul id="record_type_selector" class="dropdown-menu fs-12 pull-right select-type" role="menu">
+                            <li><a href="#" data-value="1"><span class="icon electric">Electicité </span></a></li>
+                            <li><a href="#" data-value="4"><span class="icon electric">Electicité 2 </span></a></li>
+                            <li><a href="#" data-value="2"><span class="icon water">Eau</span></a></li>
+                            <li><a href="#" data-value="3"><span class="icon gaz">Gaz </span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <input type="hidden" value="0" id="record_type" name="record_type" />
+
+                <div class="form-group row margin-top-10">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div id="value_box" class="input-manual-box">
+                            <div class="input-manual-title value_1_title">Saisisser votre index eau (m3)</div>
+                            <input type="number" class="form-control input-manual btn-block" min="1" 
+                                   name="value" value="" required="required" pattern="\d+" maxlength="5">
+                        </div>
+                        <!--<input type="number" class="form-control input-manual btn-block" name="value" value="" required="required" pattern="\d+" maxlength="5" />-->
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div id="value_2_box" class="input-manual-box">
+                            <div class="input-manual-title">Saisisser votre index electricité heures pleines (kWh)</div>
+                            <input type="number" class="form-control input-manual btn-block" id="value_2" min="1"
+                                   name="value_2" value="" pattern="\d+" maxlength="5" />
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-xs-offset-3">
+                    <button type="submit" class="btn btn-primary btn-green col-xs-12" id="btn-submit">
+                        ENVOYER
+                    </button>
+                </div>
+            </form>
+        </div>
+        <input id="page_name" value="inputManually" type="hidden" />
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script>
+            $(function () {
+
+                $(".dropdown-menu").on('click', 'li a', function () {
+                    $(this).parents('.btn-group').find(".text").text($(this).text());
+                    $(this).parents('.btn-group').find(".btn:first-child").val($(this).text());
+                });
+
+            });
+        </script>
+        <div class="loading"></div>
+    </body>
+</html>
