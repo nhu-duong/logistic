@@ -34,7 +34,7 @@ class OrdersController extends Controller {
      */
     public function index()
     {
-            return view('order.index');
+        return view('order.index');
     }
     
     /**
