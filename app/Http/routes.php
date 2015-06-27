@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function() {
-	return redirect('/auth/login');
+	return redirect('/home');
 });
-Route::get('/home', 'HomeController@index');
+Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
@@ -26,3 +26,5 @@ Route::get('/home/add-record', 'HomeController@getAddRecord');
 Route::get('/home/list-record', 'HomeController@getListRecord');
 Route::post('/image/add-record', 'ImageController@saveImage');
 Route::post('/auth/user-info', 'Auth\AuthController@postUserInfo');
+
+Route::get('/orders', ['as' => 'list_orders', 'uses' => 'OrdersController@index']);

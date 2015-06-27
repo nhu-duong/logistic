@@ -19,6 +19,8 @@
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <!-- Custom style -->
+    <link href="css/app.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -39,12 +41,12 @@
                         <h1 class="page-header">
                             @yield('title')
                         </h1>
-                        @yield('breadcrumb')
                     </div>
                 </div>
                 
                 @yield('content')
             </div>
+            @include('footer')
         </div>
         <!-- /#page-wrapper -->
 
