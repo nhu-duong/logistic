@@ -13,10 +13,15 @@
 }
 
 #page-wrapper {
-    min-height: 545px;
+    min-height: 575px;
 }
 
 .page-header {
     margin-top: 0;
     padding-bottom: 5px;
+}
+
+.bill_no_group input {
+    width: 100px;
+    display: inline-block;
 }

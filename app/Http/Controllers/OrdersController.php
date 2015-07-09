@@ -43,6 +43,6 @@ class OrdersController extends Controller {
      */
     public function getEditOrder($orderId)
     {
-        
+        return view('order.edit');
     }
 }

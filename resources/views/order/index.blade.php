@@ -1,7 +1,9 @@
 @extends('app')
 
 @section('title')
+<h1 class="page-header">
     Orders <small>Search orders</small>
+</h1>
 @endsection
 
 @section('breadcrumb')
@@ -47,5 +49,6 @@
                 </tr>
             </tbody>
         </table>
+        <a class="btn btn-primary" href="{{route('edit_order', ['orderId' => 0])}}">New</a>
     </div>
 @endsection
