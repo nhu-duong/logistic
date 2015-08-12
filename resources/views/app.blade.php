@@ -36,7 +36,7 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->
-                <div class="row">
+                <div class="row" style="margin-left: 0;">
                     <div class="col-lg-12">
                         @yield('title')
                     </div>
@@ -58,8 +58,9 @@
     <script src="{{asset('/vendor/js/bootstrap.min.js')}}"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="{{asset('/vendor/js/plugins/morris/raphael.min.js')}}"></script>
+<!--    <script src="{{asset('/vendor/js/plugins/morris/raphael.min.js')}}"></script>
     <script src="{{asset('/vendor/js/plugins/morris/morris.min.js')}}"></script>
-    <script src="{{asset('/vendor/js/plugins/morris/morris-data.js')}}"></script>
+    <script src="{{asset('/vendor/js/plugins/morris/morris-data.js')}}"></script>-->
+    <script src="{{asset('/js/common.js')}}"></script>
 </body>
 </html>

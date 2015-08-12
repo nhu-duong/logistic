@@ -29,3 +29,4 @@ Route::post('/auth/user-info', 'Auth\AuthController@postUserInfo');
 
 Route::get('/orders', ['as' => 'list_orders', 'uses' => 'OrdersController@index']);
 Route::get('/orders/edit/{orderId}', ['as' => 'edit_order', 'uses' => 'OrdersController@getEditOrder']);
+Route::post('/orders/save/{orderId}', ['as' => 'save_order', 'uses' => 'OrdersController@postSaveOrder']);

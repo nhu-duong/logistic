@@ -1,7 +1,7 @@
 /* Custom css */
 
 .footer {
-    position: absolute;
+    position: fixed;
     width: 100%;
     right: 0;
     bottom: 0;
@@ -14,6 +14,12 @@
 
 #page-wrapper {
     min-height: 575px;
+    padding: 0;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .page-header {
@@ -24,4 +30,64 @@
 .bill_no_group input {
     width: 100px;
     display: inline-block;
+}
+
+.edit_order_form {
+    width: 1253px;
+}
+.edit_order_form_wrapper {
+    width: 100%;
+    overflow: auto;
+    min-height: 450px;
+    margin-bottom: 30px;
+}
+.edit_order_form .form-group {
+    width: 100%;
+    padding-left: 20px;
+}
+.edit_order_form .control-label {
+    float: left;
+    width: 160px;
+    display: inline-block;
+    text-align: left;
+    margin-left: 20px;
+}
+.edit_order_form .control-container {
+    width: 1015px;
+    display: inline-block;
+}
+.edit_order_form .control-container2 {
+    width: 400px;
+    display: inline-block;
+}
+.edit_order_form .control-container select, 
+.edit_order_form .control-container input {
+    width: 100%;
+}
+.edit_order_form .control-container2 select, 
+.edit_order_form .control-container2 input, 
+.edit_order_form .control-container2 textarea {
+    width: 97%;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 125px;
+    }
+    
+    .side-nav {
+        left: 125px;
+        width: 125px;
+        margin-left: -125px;
+    }
+
+    .side-nav>li>a {
+        width: 125px;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #000 !important;
+    }
 }

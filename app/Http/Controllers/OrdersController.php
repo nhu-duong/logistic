@@ -1,8 +1,13 @@
 <?php namespace App\Http\Controllers;
 
-use App\Record;
+use App\Order;
 use Validator;
+use App\Agent;
+use App\Address;
+use App\Ship;
+use App\Port;
 use Illuminate\Http\Request;
+use \Illuminate\Support\Facades\Input;
 
 class OrdersController extends Controller {
 
@@ -43,6 +48,32 @@ class OrdersController extends Controller {
      */
     public function getEditOrder($orderId)
     {
-        return view('order.edit');
+        if (empty($orderId)) {
+            $order = new Order();
+        } else {
+            $order = Order::find($orderId);
+        }
+        $agents = Agent::all()->lists('name', 'id');
+        $buyers = Address::all()->where('is_buyer', 1)->lists('name', 'id');
+        $sellers = Address::all()->where('is_seller', 1)->lists('name', 'id');
+        $ships = Ship::all()->lists('name', 'id');
+        $ports = Port::all()->lists('name', 'id');
+        return view('order.edit', [
+            'orderId' => $orderId, 
+            'order' => $order,
+            'agents' => $agents,
+            'buyers' => $buyers,
+            'sellers' => $sellers,
+            'ships' => $ships,
+            'ports' => $ports,
+        ]);
+    }
+    
+    public function postSaveOrder($orderId)
+    {
+        echo $orderId;
+        $order = new Order(Input::all());
+        $order->save();
+        dd(Input::all());
     }
 }
