@@ -24,29 +24,31 @@
                     <th title="Shipped Onboard Date">ETD</th>
                     <th title="Arrival Date">ETA</th>
                     <th>Seller</th>
-                    <th>Delivery Date</th>
                     <th>Buyer</th>
+                    <th>Delivery Date</th>
                     <th>Weight</th>
                     <th>Volume</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($orders as $order)
                 <tr>
-                    <td>VNL2267</td>
-                    <td>TCL2267TH764</td>
-                    <td>10/04/2015</td>
-                    <td>15/05/2015</td>
-                    <td>WINSOME GREEN CO.,LTD, THAILAND</td>
+                    <td>{{$order->master_bill_no}}</td>
+                    <td>{{$order->house_bill_no}}</td>
+                    <td>{{$order->shipped_onboard_date}}</td>
+                    <td>{{$order->arrival_date}}</td>
+                    <td>{{$order->seller->name}}</td>
+                    <td>{{$order->buyer->name}}</td>
                     <td>18/05/2015</td>
-                    <td>HONG TAN PHAT CO.,LTD. VIETNAM</td>
                     <td>16,317.610 KGS</td>
                     <td>45.200 M3</td>
                     <td style="padding: 0; text-align: center;"><div>
-                            <a href="javascript:void(0);" class="label label-default"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="{{route('edit_order', ['orderId' => $order->id])}}" class="label label-default"><i class="glyphicon glyphicon-edit"></i></a>
                             <a href="javascript:void(0);" class="label label-danger"><i class="glyphicon glyphicon-remove"></i></a>
                         </div></td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
         <a class="btn btn-primary" href="{{route('edit_order', ['orderId' => 0])}}">New</a>

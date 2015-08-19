@@ -39,7 +39,11 @@ class OrdersController extends Controller {
      */
     public function index()
     {
-        return view('order.index');
+        $allOrders = Order::all();
+//        foreach ($allOrders as $order) {
+//            dd($order->buyer);
+//        }
+        return view('order.index', ['orders' => $allOrders]);
     }
     
     /**

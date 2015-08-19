@@ -40,7 +40,7 @@
                     <div class="form-group">
                         <label class="control-label" for="seller">Seller:</label>
                         <div class="control-container2">
-                            {!!Form::select('seller', $sellers, $order->seller, ['class' => 'form-control'])!!}
+                            {!!Form::select('seller_id', $sellers, $order->seller_id, ['class' => 'form-control'])!!}
                         </div>
                     </div>
                     <div class="form-group">
@@ -52,13 +52,13 @@
                     <div class="form-group">
                         <label class="control-label" for="ship">Ship:</label>
                         <div class="control-container2">
-                            {!!Form::select('ship', $ships, $order->ship, ['class' => 'form-control'])!!}
+                            {!!Form::select('ship_id', $ships, $order->ship_id, ['class' => 'form-control'])!!}
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="shippemt_loading_port">Loading port:</label>
                         <div class="control-container2">
-                            {!!Form::select('shippemt_loading_port', $ports, $order->shippemt_loading_port, ['class' => 'form-control'])!!}
+                            {!!Form::select('loading_port_id', $ports, $order->loading_port_id, ['class' => 'form-control'])!!}
                         </div>
                     </div>
                     <div class="form-group">
@@ -105,7 +105,7 @@
                     <div class="form-group">
                         <label class="control-label" for="buyer">Buyer:</label>
                         <div class="control-container2">
-                            {!!Form::select('buyer', $buyers, $order->buyer, ['class' => 'form-control'])!!}
+                            {!!Form::select('buyer_id', $buyers, $order->buyer_id, ['class' => 'form-control'])!!}
                         </div>
                     </div>
                     <div class="form-group">
@@ -117,13 +117,13 @@
                     <div class="form-group">
                         <label class="control-label" for="voyage">Voyage:</label>
                         <div class="control-container2">
-                            {!! Form::text('voyage', $order->voyage, ['class' => 'form-control']) !!}
+                            {!! Form::text('shipment_voyage', $order->shipment_voyage, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="discharging_port">Discharging Port:</label>
                         <div class="control-container2">
-                            {!!Form::select('discharging_port', $ports, $order->discharging_port, ['class' => 'form-control'])!!}
+                            {!!Form::select('discharging_port_id', $ports, $order->discharging_port_id, ['class' => 'form-control'])!!}
                         </div>
                     </div>
                     <div class="form-group">
