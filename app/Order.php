@@ -18,7 +18,12 @@ class Order extends Model {
      *
      * @var array
      */
-    protected $fillable = ['house_bill_no', 'master_bill_no', 'remote_agent', 'seller_id', 'buyer_id', 'description_of_goods', 'ship_id', 'loading_port_id', 'discharging_port_id', 'freight_payable_at', 'shipment_container_no', 'shipment_seal_no', 'place_of_delivery', 'place_of_receipt', 'marks', 'fee_ocean_freight', 'fee_do', 'fee_thc', 'fee_cic', 'fee_cleaning', 'fee_handling', 'exchange_rate', 'shipment_voyage', 'description', 'short_description', 'shipped_onboard_date', 'arrival_date'];
+    protected $fillable = ['house_bill_no', 'master_bill_no', 'remote_agent', 'seller_id', 'buyer_id', 
+        'description_of_goods', 'ship_id', 'loading_port_id', 'discharging_port_id', 'freight_payable_at', 
+        'shipment_container_no', 'shipment_seal_no', 'place_of_delivery', 'place_of_receipt', 'marks', 
+        'fee_ocean_freight', 'fee_do', 'fee_thc', 'fee_cic', 'fee_cleaning', 
+        'fee_handling', 'exchange_rate', 'shipment_voyage', 'description', 'short_description', 
+        'shipped_onboard_date', 'arrival_date', 'order_type'];
 
     /**
      * The attributes excluded from the model's JSON form.

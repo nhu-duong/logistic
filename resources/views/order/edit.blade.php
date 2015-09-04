@@ -3,8 +3,12 @@
 @section('title')
 <div class="edit_order_title">
     <h1 class="pull-left">Create Order</h1>
-    <form name="edit_order_form" action="{{route('save_order', ['orderId' => $orderId])}}" method="POST">
+    <form name="edit_order_form" action="{{route('save_order', ['orderId' => $orderId])}}" method="POST" class="bill_no_form">
     <div class="pull-right bill_no_group">
+        <select class="form-control update-hidden" data-target="order_type">
+            <option value="1" <?php echo $order->order_type == 1 ? 'selected="selected"' : ''; ?> >Import</option>
+            <option value="2" <?php echo $order->order_type == 2 ? 'selected="selected"' : ''; ?> >Export</option></select>
+        /
         <input type="text" class="form-control update-hidden" data-target="master_bill_no" 
                value="{{$order->master_bill_no}}" placeholder="Enter master bill no">
         /
@@ -29,6 +33,7 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             {!! Form::hidden('master_bill_no', $order->master_bill_no, ['id' => 'master_bill_no']) !!}
             {!! Form::hidden('house_bill_no', $order->house_bill_no, ['id' => 'house_bill_no']) !!}
+            {!! Form::hidden('order_type', $order->order_type, ['id' => 'order_type']) !!}
             <div class="edit_order_form">
                 <div class="form-group">
                     <label class="control-label" for="remote_agent">Remote agent:</label>
@@ -59,6 +64,12 @@
                         <label class="control-label" for="shippemt_loading_port">Loading port:</label>
                         <div class="control-container2">
                             {!!Form::select('loading_port_id', $ports, $order->loading_port_id, ['class' => 'form-control'])!!}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="place_of_receipt">Place of recipe:</label>
+                        <div class="control-container2">
+                            {!!Form::text('place_of_receipt', $order->place_of_receipt, ['class' => 'form-control'])!!}
                         </div>
                     </div>
                     <div class="form-group">
@@ -127,9 +138,27 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="control-label" for="place_of_delivery">Place of delivery:</label>
+                        <div class="control-container2">
+                            {!!Form::text('place_of_delivery', $order->place_of_delivery, ['class' => 'form-control'])!!}
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label" for="arrival_date">Arrival date:</label>
                         <div class="control-container2">
                             {!! Form::input('date', 'arrival_date', $order->arrival_date, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="shipment_container_no">Container no:</label>
+                        <div class="control-container2">
+                            {!! Form::input('text', 'shipment_container_no', $order->shipment_container_no, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="shipment_seal_no">Seal no:</label>
+                        <div class="control-container2">
+                            {!! Form::input('text', 'shipment_seal_no', $order->shipment_seal_no, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
@@ -146,8 +175,8 @@
                     </div>
                 </div>
             </div>
-            <div style="clear: both;">
-                <button type="submit" class="btn btn-default">Submit Button</button>
+            <div style="clear: both; margin-left: 30px;">
+                <button type="submit" class="btn btn-default">Save</button>
             </div>
         <!--</form>-->
         {!! Form::close() !!}

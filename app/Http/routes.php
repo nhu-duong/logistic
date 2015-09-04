@@ -30,3 +30,8 @@ Route::post('/auth/user-info', 'Auth\AuthController@postUserInfo');
 Route::get('/orders', ['as' => 'list_orders', 'uses' => 'OrdersController@index']);
 Route::get('/orders/edit/{orderId}', ['as' => 'edit_order', 'uses' => 'OrdersController@getEditOrder']);
 Route::post('/orders/save/{orderId}', ['as' => 'save_order', 'uses' => 'OrdersController@postSaveOrder']);
+
+Route::get('/address', ['as' => 'list_address', 'uses' => 'AddressController@indexAction']);
+Route::get('/address/new', ['as' => 'new_address', 'uses' => 'AddressController@newAction']);
+Route::get('/address/edit/{id}', ['as' => 'edit_address', 'uses' => 'AddressController@editAction']);
+Route::post('/address/save', ['as' => 'save_address', 'uses' => 'AddressController@saveAction']);

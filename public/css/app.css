@@ -27,7 +27,7 @@
     padding-bottom: 5px;
 }
 
-.bill_no_group input {
+.bill_no_group input, .bill_no_group select {
     width: 100px;
     display: inline-block;
 }
@@ -90,4 +90,10 @@
         outline: none;
         background-color: #000 !important;
     }
+}
+
+.bill_no_form {
+    display: inline-block;
+    float: right;
+    margin-top: 17px;
 }

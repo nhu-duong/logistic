@@ -36,7 +36,7 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->
-                <div class="row" style="margin-left: 0;">
+                <div class="row" style="margin-left: 0; margin-right: 0;">
                     <div class="col-lg-12">
                         @yield('title')
                     </div>

@@ -1,9 +1,18 @@
 @extends('app')
 
 @section('title')
-<h1 class="page-header">
-    Orders <small>Search orders</small>
-</h1>
+<div class="edit_order_title">
+    <h1 class="pull-left">
+        Orders <small>Search orders</small>
+    </h1>
+    <form name="search_order_form" method="GET" class="bill_no_form">
+        <div class="pull-right bill_no_group">
+            <input type="text" class="form-control" name="s" style="width: 250px;"
+                   value="{{$keyword}}" placeholder="Enter house bill no or master bill no to search">
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </div>
+    </form>
+</div>
 @endsection
 
 @section('breadcrumb')
