@@ -97,3 +97,7 @@
     float: right;
     margin-top: 17px;
 }
+
+.margin-top-10 {
+    margin-top: 10px !important;
+}
