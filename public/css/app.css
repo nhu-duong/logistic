@@ -64,11 +64,11 @@
 .edit_order_form .control-container input {
     width: 100%;
 }
-.edit_order_form .control-container2 select, 
+/*.edit_order_form .control-container2 select, 
 .edit_order_form .control-container2 input, 
 .edit_order_form .control-container2 textarea {
     width: 97%;
-}
+}*/
 
 @media(min-width:768px) {
     #wrapper {

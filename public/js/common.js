@@ -11,3 +11,11 @@ $(document).ready(function(){
         $('#' + target).val($(obj).val());
     });
 });
+
+var showError = function(message) {
+    alert(message);
+};
+
+var showCommonError = function() {
+    showError("There's an error, please reload the page and try again!");
+}

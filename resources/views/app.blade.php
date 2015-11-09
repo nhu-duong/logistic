@@ -50,6 +50,7 @@
 
     </div>
 
+    @yield('customCreateFormModal')
 
     <!-- jQuery -->
     <script src="{{asset('/vendor/js/jquery.js')}}"></script>
@@ -62,5 +63,6 @@
     <script src="{{asset('/vendor/js/plugins/morris/morris.min.js')}}"></script>
     <script src="{{asset('/vendor/js/plugins/morris/morris-data.js')}}"></script>-->
     <script src="{{asset('/js/common.js')}}"></script>
+    <script src="{{asset('/js/myselect.js')}}"></script>
 </body>
 </html>

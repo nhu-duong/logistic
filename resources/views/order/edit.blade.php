@@ -49,15 +49,20 @@
                         <div class="form-group">
                             <label class="control-label" for="remote_agent">Remote agent:</label>
                             <div class="control-container">
-                                {!!Form::select('remote_agent', $agents, $order->remote_agent, ['class' => 'form-control'])!!}
+                                <div class="input-group">
+                                    {!!Form::select('remote_agent', $agents, $order->remote_agent, ['class' => 'form-control', 'id' => 'remote_agent'])!!}
+                                    <div class="input-group-addon"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                                </div>
                             </div>
                         </div>
                         <div class="pull-left" style="width: 50%;">
                             <div class="form-group">
                                 <label class="control-label" for="seller">Seller / Shipper:</label>
                                 <div class="control-container2">
-                                    {!!Form::select('seller_id', $sellers, $order->seller_id, ['class' => 'form-control'])!!}
-                                    <div class="input-group-addon">.00</div>
+                                    <div class="input-group">
+                                        {!!Form::select('seller_id', $sellers, $order->seller_id, ['class' => 'form-control', 'id' => 'seller_id'])!!}
+                                        <div class="input-group-addon showCreateForm" data-create-form-url="http://localhost/logistic/public/orders/edit/0"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -69,13 +74,19 @@
                             <div class="form-group">
                                 <label class="control-label" for="ship">Ocean Vessel:</label>
                                 <div class="control-container2">
-                                    {!!Form::select('ship_id', $ships, $order->ship_id, ['class' => 'form-control'])!!}
+                                    <div class="input-group">
+                                        {!!Form::select('ship_id', $ships, $order->ship_id, ['class' => 'form-control', 'id' => 'ship_id'])!!}
+                                        <div class="input-group-addon"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="shippemt_loading_port">Loading port:</label>
                                 <div class="control-container2">
-                                    {!!Form::select('loading_port_id', $ports, $order->loading_port_id, ['class' => 'form-control'])!!}
+                                    <div class="input-group">
+                                        {!!Form::select('loading_port_id', $ports, $order->loading_port_id, ['class' => 'form-control', 'id' => 'loading_port_id'])!!}
+                                        <div class="input-group-addon"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -128,7 +139,10 @@
                             <div class="form-group">
                                 <label class="control-label" for="buyer">Buyer / Consignee:</label>
                                 <div class="control-container2">
-                                    {!!Form::select('buyer_id', $buyers, $order->buyer_id, ['class' => 'form-control'])!!}
+                                    <div class="input-group">
+                                        {!!Form::select('buyer_id', $buyers, $order->buyer_id, ['class' => 'form-control', 'id' => 'buyer_id'])!!}
+                                        <div class="input-group-addon"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -138,9 +152,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="buyer">Notify Party:</label>
+                                <label class="control-label" for="notify_party_id">Notify Party:</label>
                                 <div class="control-container2">
-                                    {!!Form::select('buyer_id', array_merge(['Same as Consignee'], $buyers), 0, ['class' => 'form-control'])!!}
+                                    <div class="input-group">
+                                        {!!Form::select('notify_party_id', array_merge(['Same as Consignee'], $buyers), 0, ['class' => 'form-control', 'id' => 'notify_party_id'])!!}
+                                        <div class="input-group-addon"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -158,7 +175,10 @@
                             <div class="form-group">
                                 <label class="control-label" for="discharging_port">Discharging Port:</label>
                                 <div class="control-container2">
-                                    {!!Form::select('discharging_port_id', $ports, $order->discharging_port_id, ['class' => 'form-control'])!!}
+                                    <div class="input-group">
+                                        {!!Form::select('discharging_port_id', $ports, $order->discharging_port_id, ['class' => 'form-control', 'id' => 'discharging_port_id'])!!}
+                                        <div class="input-group-addon"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -211,4 +231,24 @@
         <!--</form>-->
         {!! Form::close() !!}
     </div>
+@endsection
+
+@section('customCreateFormModal')
+<div id="customCreateFormModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
 @endsection

@@ -20,7 +20,7 @@
                         <a href="#">
                             <div class="media">
                                 <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    <img class="media-object" src="" alt="">
                                 </span>
                                 <div class="media-body">
                                     <h5 class="media-heading"><strong>John Smith</strong>
@@ -35,7 +35,7 @@
                         <a href="#">
                             <div class="media">
                                 <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    <img class="media-object" src="" alt="">
                                 </span>
                                 <div class="media-body">
                                     <h5 class="media-heading"><strong>John Smith</strong>
@@ -50,7 +50,7 @@
                         <a href="#">
                             <div class="media">
                                 <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    <img class="media-object" src="" alt="">
                                 </span>
                                 <div class="media-body">
                                     <h5 class="media-heading"><strong>John Smith</strong>
