@@ -33,5 +33,6 @@ Route::post('/orders/save/{orderId}', ['as' => 'save_order', 'uses' => 'OrdersCo
 
 Route::get('/address', ['as' => 'list_address', 'uses' => 'AddressController@indexAction']);
 Route::get('/address/new', ['as' => 'new_address', 'uses' => 'AddressController@newAction']);
+Route::get('/address/new_ajax/{forceType}', ['as' => 'new_address_ajax', 'uses' => 'AddressController@ajaxNewAction']);
 Route::get('/address/edit/{id}', ['as' => 'edit_address', 'uses' => 'AddressController@editAction']);
 Route::post('/address/save', ['as' => 'save_address', 'uses' => 'AddressController@saveAction']);

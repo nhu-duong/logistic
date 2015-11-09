@@ -66,6 +66,16 @@ class AddressController extends Controller {
         ]);
     }
     
+    public function ajaxNewAction($forceType)
+    {
+        $address = new Address();
+        $address->$forceType = 1;
+        return view('address.form', [
+            'address' => $address,
+            'forceType' => [$forceType => 1],
+        ]);
+    }
+    
     public function postSaveOrder($orderId)
     {
         echo $orderId;

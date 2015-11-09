@@ -13,7 +13,7 @@ myselect.init = function() {
 
 myselect.initModal = function() {
     $('.showCreateForm').click(function(event) {
-        myselect.showPopup(event.target);
+        myselect.showPopup(event.currentTarget);
     });
 };
 
@@ -25,8 +25,10 @@ myselect.showPopup = function(element) {
     }
     
     // Show modal
-    $('#customCreateFormModal .modal-body').html('<iframe src="' + url + '" ></iframe>');
-    $('#customCreateFormModal').modal('show');
+    $.get(url, function(formHtml) {
+        $('#customCreateFormModal .modal-body').html(formHtml);
+        $('#customCreateFormModal').modal('show');
+    });
 };
 
 myselect.closePopup = function() {

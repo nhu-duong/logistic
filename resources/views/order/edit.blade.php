@@ -61,7 +61,8 @@
                                 <div class="control-container2">
                                     <div class="input-group">
                                         {!!Form::select('seller_id', $sellers, $order->seller_id, ['class' => 'form-control', 'id' => 'seller_id'])!!}
-                                        <div class="input-group-addon showCreateForm" data-create-form-url="http://localhost/logistic/public/orders/edit/0"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                                        <div class="input-group-addon showCreateForm" data-create-form-url="{{route('new_address_ajax', ['forceType' => 'is_seller'])}}">
+                                            <span class="glyphicon glyphicon-plus"></span></div>
                                     </div>
                                 </div>
                             </div>
