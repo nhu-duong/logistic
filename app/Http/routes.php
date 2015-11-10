@@ -36,3 +36,7 @@ Route::get('/address/new', ['as' => 'new_address', 'uses' => 'AddressController@
 Route::get('/address/new_ajax/{forceType}', ['as' => 'new_address_ajax', 'uses' => 'AddressController@ajaxNewAction']);
 Route::get('/address/edit/{id}', ['as' => 'edit_address', 'uses' => 'AddressController@editAction']);
 Route::post('/address/save', ['as' => 'save_address', 'uses' => 'AddressController@saveAction']);
+
+Route::post('/attachment/upload/{orderId}', ['as' => 'upload_attachment', 'uses' => 'AttachmentsController@uploadAction']);
+Route::get('/attachment/download/{id}', ['as' => 'download_attachment', 'uses' => 'AttachmentsController@downloadAction']);
+Route::get('/attachment/delete/{id}', ['as' => 'delete_attachment', 'uses' => 'AttachmentsController@deleteAction']);

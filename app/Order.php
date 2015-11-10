@@ -40,4 +40,8 @@ class Order extends Model {
     {
         return $this->belongsTo('App\Address', 'buyer_id', 'id');
     }
+    public function attachments()
+    {
+        return $this->hasMany('App\Attachment');
+    }
 }
