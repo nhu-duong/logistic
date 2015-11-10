@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.4.15
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 09, 2015 at 07:46 AM
--- Server version: 5.6.16
--- PHP Version: 5.5.11
+-- Host: localhost
+-- Generation Time: Nov 10, 2015 at 10:58 AM
+-- Server version: 5.5.46
+-- PHP Version: 5.5.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `logistic`
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `address` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `short_name` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `address` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
@@ -38,9 +38,8 @@ CREATE TABLE IF NOT EXISTS `address` (
   `is_seller` tinyint(4) NOT NULL DEFAULT '0',
   `is_agent` tinyint(4) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Table contain information of seller, buyer, agent' AUTO_INCREMENT=4 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Table contain information of seller, buyer, agent';
 
 --
 -- Dumping data for table `address`
@@ -49,7 +48,11 @@ CREATE TABLE IF NOT EXISTS `address` (
 INSERT INTO `address` (`id`, `name`, `short_name`, `address`, `email`, `phone`, `fax`, `is_buyer`, `is_seller`, `is_agent`, `created_at`, `updated_at`) VALUES
 (1, 'Buyer 1', 'short1', 'dia chi cua khach hang 1', 'buyer1@logistic.com', '098632', '098345632', 1, 0, 0, '2015-08-08 19:58:38', '2015-08-08 19:58:38'),
 (2, 'Seller 1', 'sellershortname', 'dia chi cua nguoi ban 1', 'seller1@logistic.com', '098456', '0293520395', 0, 1, 0, '2015-08-08 20:00:41', '2015-08-08 20:00:41'),
-(3, 'Both buyer and seller', 'buyandsell', 'Address of this buyer and seller', 'buyandsell@logistic.com', '0945723', '09342523', 1, 1, 0, '2015-08-08 20:01:26', '2015-08-08 20:01:26');
+(3, 'Both buyer and seller', 'buyandsell', 'Address of this buyer and seller', 'buyandsell@logistic.com', '0945723', '09342523', 1, 1, 0, '2015-08-08 20:01:26', '2015-08-08 20:01:26'),
+(4, 'Custom1', NULL, 'alsdfkj', 'adlk;', 'asdlkf', 'akldjf', 1, 1, 0, '2015-11-09 20:52:48', '2015-11-09 20:52:48'),
+(8, 'Custom2', NULL, 'adlsfkj', 'asldf;kj', 'asdl;fkj', 'asldkfj', 1, 1, 1, '2015-11-09 20:56:13', '2015-11-09 20:56:13'),
+(9, 'Custom3', NULL, 'aldskfj', 'aldkj', 'asdlkfj', 'alsdkfj', 1, 1, 0, '2015-11-09 21:14:47', '2015-11-09 21:14:47'),
+(10, 'Custom4', NULL, 'al;dkjf', 'asd;lfkj', 'alsdfkj', 'asdflkj', 1, 1, 0, '2015-11-09 21:15:26', '2015-11-09 21:15:26');
 
 -- --------------------------------------------------------
 
@@ -58,16 +61,15 @@ INSERT INTO `address` (`id`, `name`, `short_name`, `address`, `email`, `phone`, 
 --
 
 CREATE TABLE IF NOT EXISTS `agents` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `country` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `agents`
@@ -80,17 +82,43 @@ INSERT INTO `agents` (`id`, `name`, `address`, `city`, `country`, `phone`, `crea
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `attachments`
+--
+
+CREATE TABLE IF NOT EXISTS `attachments` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `file_name` varchar(512) COLLATE utf8_unicode_ci NOT NULL,
+  `mime` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `attachments`
+--
+
+INSERT INTO `attachments` (`id`, `order_id`, `file_name`, `mime`, `created_by`, `created_at`, `updated_at`) VALUES
+(2, 5, 'undefined', 'text/plain', 1, '2015-11-10 03:50:23', '2015-11-10 03:50:23'),
+(3, 5, 'undefined', 'text/plain', 1, '2015-11-10 03:51:03', '2015-11-10 03:51:03'),
+(4, 5, 'undefined', 'text/plain', 1, '2015-11-10 03:54:02', '2015-11-10 03:54:02'),
+(5, 5, 'logistic.sql', 'text/plain', 1, '2015-11-10 03:54:32', '2015-11-10 03:54:32'),
+(6, 5, 'banner.jpg', 'image/jpeg', 1, '2015-11-10 03:54:48', '2015-11-10 03:54:48');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `items`
 --
 
 CREATE TABLE IF NOT EXISTS `items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `short_name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -99,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `items` (
 --
 
 CREATE TABLE IF NOT EXISTS `orders` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `house_bill_no` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `master_bill_no` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `order_type` tinyint(4) NOT NULL DEFAULT '1',
@@ -141,11 +169,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `delivery_date` date DEFAULT NULL,
   `quotation_date` date DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `house_bill_no` (`house_bill_no`,`master_bill_no`),
-  KEY `order_type` (`order_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `orders`
@@ -165,7 +190,7 @@ INSERT INTO `orders` (`id`, `house_bill_no`, `master_bill_no`, `order_type`, `se
 --
 
 CREATE TABLE IF NOT EXISTS `order_items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
   `item_name` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -175,9 +200,8 @@ CREATE TABLE IF NOT EXISTS `order_items` (
   `width` int(11) DEFAULT '0',
   `height` int(11) DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -186,13 +210,12 @@ CREATE TABLE IF NOT EXISTS `order_items` (
 --
 
 CREATE TABLE IF NOT EXISTS `ports` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Table contain information of seller, buyer, agent' AUTO_INCREMENT=4 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Table contain information of seller, buyer, agent';
 
 --
 -- Dumping data for table `ports`
@@ -210,12 +233,11 @@ INSERT INTO `ports` (`id`, `name`, `address`, `created_at`, `updated_at`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `ships` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ships`
@@ -232,7 +254,7 @@ INSERT INTO `ships` (`id`, `name`, `created_at`, `updated_at`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -244,10 +266,125 @@ CREATE TABLE IF NOT EXISTS `users` (
   `reset_pass_expired_at` datetime DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `phone`, `email`, `password`, `remember_token`, `is_login`, `activation_code`, `reset_pass_code`, `reset_pass_expired_at`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'Nhu', '0985456', 'duong@gmail.com', '123456', NULL, 1, '', NULL, NULL, 1, '2015-11-10 08:15:06', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `address`
+--
+ALTER TABLE `address`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `agents`
+--
+ALTER TABLE `agents`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `attachments`
+--
+ALTER TABLE `attachments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `house_bill_no` (`house_bill_no`,`master_bill_no`),
+  ADD KEY `order_type` (`order_type`);
+
+--
+-- Indexes for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ports`
+--
+ALTER TABLE `ports`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ships`
+--
+ALTER TABLE `ships`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `address`
+--
+ALTER TABLE `address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `agents`
+--
+ALTER TABLE `agents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `attachments`
+--
+ALTER TABLE `attachments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `items`
+--
+ALTER TABLE `items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `order_items`
+--
+ALTER TABLE `order_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `ports`
+--
+ALTER TABLE `ports`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `ships`
+--
+ALTER TABLE `ships`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
