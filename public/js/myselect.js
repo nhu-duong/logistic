@@ -7,8 +7,9 @@
 var myselect = {};
 myselect.init = function() {
     this.modalId = 'customCreateFormModal';
-    this.formId = 'customCreateFormId';
+//    this.formId = 'customCreateFormId';
     this.initModal();
+    $('#saveCustomForm').click(this.submitForm);
 };
 
 myselect.initModal = function() {
@@ -18,11 +19,12 @@ myselect.initModal = function() {
 };
 
 myselect.showPopup = function(element) {
-    var url = $(element).attr('data-create-form-url');
+    var url = $(element).data('create-form-url');
     if (typeof url !== 'string' || url.length === 0) {
         showCommonError();
         return;
     }
+    myselect.targetControlId = $(element).data('target-control');
     
     // Show modal
     $.get(url, function(formHtml) {
@@ -32,7 +34,7 @@ myselect.showPopup = function(element) {
 };
 
 myselect.closePopup = function() {
-    $('#customCreateFormModal').modal('close');
+    $('#customCreateFormModal').modal('hide');
 };
 
 myselect.updateSelect = function(selectId, value, title, previewControlId, previewContent) {
@@ -49,6 +51,26 @@ myselect.updateSelect = function(selectId, value, title, previewControlId, previ
 };
 
 myselect.submitForm = function() {
-    
+    var formUrl = $('#' + myselect.modalId + ' form').attr('action');
+    $.ajax({
+        url: formUrl,
+        type: 'post',
+        dataType: 'json',
+        data: $('#' + myselect.modalId + ' form').serialize(),
+        success: function(resp) {
+            if (resp.result === 1) {
+                myselect.addObjToSelect(resp.address.id, resp.address.name, myselect.targetControlId);
+                myselect.closePopup();
+            }
+            
+        }
+    });
+};
+myselect.addObjToSelect = function(value, label, targetControlId) {
+    $('#' + targetControlId)
+        .append($("<option></option>")
+            .attr("value", value)
+            .text(label))
+        .val(value);
 };
 myselect.init();

@@ -61,7 +61,8 @@
                                 <div class="control-container2">
                                     <div class="input-group">
                                         {!!Form::select('seller_id', $sellers, $order->seller_id, ['class' => 'form-control', 'id' => 'seller_id'])!!}
-                                        <div class="input-group-addon showCreateForm" data-create-form-url="{{route('new_address_ajax', ['forceType' => 'is_seller'])}}">
+                                        <div class="input-group-addon showCreateForm" data-target-control="seller_id"
+                                             data-create-form-url="{{route('new_address_ajax', ['forceType' => 'is_seller'])}}">
                                             <span class="glyphicon glyphicon-plus"></span></div>
                                     </div>
                                 </div>
@@ -247,7 +248,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" id="saveCustomForm">Save</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

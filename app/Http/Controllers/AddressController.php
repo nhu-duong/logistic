@@ -76,11 +76,24 @@ class AddressController extends Controller {
         ]);
     }
     
-    public function postSaveOrder($orderId)
+    public function saveAction(Request $request)
     {
-        echo $orderId;
-        $order = new Order(Input::all());
-        $order->save();
-        dd(Input::all());
+        $id = Input::has('id') ? Input::get('id') : 0;
+        if ($id) {
+            $address = Address::find($id);
+        } else {
+            $address = new Address();
+        }
+        $address->fill(Input::all());
+        $address->save();
+        
+        if ($request->ajax()) {
+            return response()->json([
+                'result' => 1,
+                'address' => $address,
+            ]);
+        } else {
+            return response()->redirectToAction('index');
+        }
     }
 }

@@ -3,39 +3,39 @@
     <input type="hidden" name="id" value="{{ $address->id }}">
     <!-- `id`, `name`, `short_name`, `address`, `email`, `phone`, `fax`, `is_buyer`, `is_seller`, `is_agent`, `created_at`, `updated_at` -->
     <div class="form-group">
-        <label class="control-label col-sm-3" for="remote_agent">Name:</label>
+        <label class="control-label col-sm-3" for="name">Name:</label>
         <div class="col-sm-9">
             {!!Form::text('name', $address->name, ['class' => 'form-control', 'id' => 'name'])!!}
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-3" for="remote_agent">Short name:</label>
+        <label class="control-label col-sm-3" for="shortname">Short name:</label>
         <div class="col-sm-9">
-            {!!Form::text('name', $address->name, ['class' => 'form-control', 'id' => 'name'])!!}
+            {!!Form::text('shortname', $address->shortname, ['class' => 'form-control', 'id' => 'shortname'])!!}
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-3" for="remote_agent">Address:</label>
+        <label class="control-label col-sm-3" for="address">Address:</label>
         <div class="col-sm-9">
-            {!!Form::text('name', $address->name, ['class' => 'form-control', 'id' => 'name'])!!}
+            {!!Form::text('address', $address->address, ['class' => 'form-control', 'id' => 'address'])!!}
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-3" for="remote_agent">Email:</label>
+        <label class="control-label col-sm-3" for="email">Email:</label>
         <div class="col-sm-9">
-            {!!Form::text('name', $address->name, ['class' => 'form-control', 'id' => 'name'])!!}
+            {!!Form::text('email', $address->email, ['class' => 'form-control', 'id' => 'email'])!!}
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-3" for="remote_agent">Phone:</label>
+        <label class="control-label col-sm-3" for="phone">Phone:</label>
         <div class="col-sm-9">
-            {!!Form::text('name', $address->name, ['class' => 'form-control', 'id' => 'name'])!!}
+            {!!Form::text('phone', $address->phone, ['class' => 'form-control', 'id' => 'phone'])!!}
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-3" for="remote_agent">Fax:</label>
+        <label class="control-label col-sm-3" for="fax">Fax:</label>
         <div class="col-sm-9">
-            {!!Form::text('name', $address->name, ['class' => 'form-control', 'id' => 'name'])!!}
+            {!!Form::text('fax', $address->fax, ['class' => 'form-control', 'id' => 'fax'])!!}
         </div>
     </div>
     <?php $checkBoxes = ['is_buyer' => 'Is Buyer', 'is_seller' => 'Is Seller', 'is_agent' => 'Is Agent']; ?>
