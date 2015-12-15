@@ -9,7 +9,9 @@
             <div class="control-container">
                 <div class="input-group">
                     {!!Form::select('remote_agent', $agents, $order->remote_agent, ['class' => 'form-control', 'id' => 'remote_agent'])!!}
-                    <div class="input-group-addon"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                    <div class="input-group-addon showCreateForm" data-target-control="remote_agent"
+                             data-create-form-url="{{route('new_address_ajax', ['forceType' => 'is_agent'])}}">
+                            <span class="glyphicon glyphicon-plus"></span></div>
                 </div>
             </div>
         </div>
@@ -101,7 +103,9 @@
                 <div class="control-container2">
                     <div class="input-group">
                         {!!Form::select('buyer_id', $buyers, $order->buyer_id, ['class' => 'form-control', 'id' => 'buyer_id'])!!}
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                        <div class="input-group-addon showCreateForm" data-target-control="buyer_id"
+                             data-create-form-url="{{route('new_address_ajax', ['forceType' => 'is_buyer'])}}">
+                            <span class="glyphicon glyphicon-plus"></span></div>
                     </div>
                 </div>
             </div>
