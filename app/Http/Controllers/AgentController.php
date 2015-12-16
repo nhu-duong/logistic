@@ -1,11 +1,11 @@
 <?php namespace App\Http\Controllers;
 
-use App\Address;
+use App\Agent;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\Input;
 
-class AddressController extends Controller {
+class AgentController extends Controller {
 
     /*
     |--------------------------------------------------------------------------
@@ -61,13 +61,11 @@ class AddressController extends Controller {
         ]);
     }
     
-    public function ajaxNewAction($forceType)
+    public function ajaxNewAction()
     {
-        $address = new Address();
-        $address->$forceType = 1;
-        return view('address.form', [
-            'address' => $address,
-            'forceType' => [$forceType => 1],
+        $agent = new Agent();
+        return view('agent.form', [
+            'agent' => $agent,
         ]);
     }
     
@@ -75,17 +73,17 @@ class AddressController extends Controller {
     {
         $id = Input::has('id') ? Input::get('id') : 0;
         if ($id) {
-            $address = Address::find($id);
+            $agent = Agent::find($id);
         } else {
-            $address = new Address();
+            $agent = new Agent();
         }
-        $address->fill(Input::all());
-        $address->save();
+        $agent->fill(Input::all());
+        $agent->save();
         
         if ($request->ajax()) {
             return response()->json([
                 'result' => 1,
-                'object' => $address,
+                'object' => $agent,
             ]);
         } else {
             return response()->redirectToAction('index');

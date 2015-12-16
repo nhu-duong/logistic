@@ -38,7 +38,7 @@
             {!!Form::text('fax', $address->fax, ['class' => 'form-control', 'id' => 'fax'])!!}
         </div>
     </div>
-    <?php $checkBoxes = ['is_buyer' => 'Is Buyer', 'is_seller' => 'Is Seller', 'is_agent' => 'Is Agent']; ?>
+    <?php $checkBoxes = ['is_buyer' => 'Is Buyer', 'is_seller' => 'Is Seller']; ?>
     @foreach ($checkBoxes as $key => $name)
     <?php $checkBoxAttrs = [];
     if (array_key_exists($key, $forceType) && $forceType[$key] == 1) { 

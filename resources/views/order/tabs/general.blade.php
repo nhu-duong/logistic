@@ -10,7 +10,7 @@
                 <div class="input-group">
                     {!!Form::select('remote_agent', $agents, $order->remote_agent, ['class' => 'form-control', 'id' => 'remote_agent'])!!}
                     <div class="input-group-addon showCreateForm" data-target-control="remote_agent"
-                             data-create-form-url="{{route('new_address_ajax', ['forceType' => 'is_agent'])}}">
+                             data-create-form-url="{{route('new_agent_ajax')}}">
                             <span class="glyphicon glyphicon-plus"></span></div>
                 </div>
             </div>

@@ -59,7 +59,7 @@ myselect.submitForm = function() {
         data: $('#' + myselect.modalId + ' form').serialize(),
         success: function(resp) {
             if (resp.result === 1) {
-                myselect.addObjToSelect(resp.address.id, resp.address.name, myselect.targetControlId);
+                myselect.addObjToSelect(resp.object.id, resp.object.name, myselect.targetControlId);
                 myselect.closePopup();
             }
             

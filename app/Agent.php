@@ -18,7 +18,7 @@ class Agent extends Model {
      *
      * @var array
      */
-    protected $fillable = ['name', 'address', 'city', 'country', 'phone'];
+    protected $fillable = ['name', 'address', 'city', 'country', 'phone', 'email'];
 
     /**
      * The attributes excluded from the model's JSON form.
