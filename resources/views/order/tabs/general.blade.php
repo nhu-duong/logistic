@@ -49,7 +49,9 @@
                 <div class="control-container2">
                     <div class="input-group">
                         {!!Form::select('loading_port_id', $ports, $order->loading_port_id, ['class' => 'form-control', 'id' => 'loading_port_id'])!!}
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                        <div class="input-group-addon showCreateForm" data-target-control="loading_port_id"
+                             data-create-form-url="{{route('new_port_ajax')}}">
+                            <span class="glyphicon glyphicon-plus"></span></div>
                     </div>
                 </div>
             </div>
@@ -143,7 +145,9 @@
                 <div class="control-container2">
                     <div class="input-group">
                         {!!Form::select('discharging_port_id', $ports, $order->discharging_port_id, ['class' => 'form-control', 'id' => 'discharging_port_id'])!!}
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                        <div class="input-group-addon showCreateForm" data-target-control="discharging_port_id"
+                             data-create-form-url="{{route('new_port_ajax')}}">
+                            <span class="glyphicon glyphicon-plus"></span></div>
                     </div>
                 </div>
             </div>
