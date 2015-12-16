@@ -40,6 +40,9 @@ Route::post('/address/save', ['as' => 'save_address', 'uses' => 'AddressControll
 Route::get('/agent/new_ajax}', ['as' => 'new_agent_ajax', 'uses' => 'AgentController@ajaxNewAction']);
 Route::post('/agent/save', ['as' => 'save_agent', 'uses' => 'AgentController@saveAction']);
 
+Route::get('/ship/new_ajax}', ['as' => 'new_ship_ajax', 'uses' => 'ShipController@ajaxNewAction']);
+Route::post('/ship/save', ['as' => 'save_ship', 'uses' => 'ShipController@saveAction']);
+
 Route::post('/attachment/upload/{orderId}', ['as' => 'upload_attachment', 'uses' => 'AttachmentsController@uploadAction']);
 Route::get('/attachment/download/{id}', ['as' => 'download_attachment', 'uses' => 'AttachmentsController@downloadAction']);
 Route::get('/attachment/delete/{id}', ['as' => 'delete_attachment', 'uses' => 'AttachmentsController@deleteAction']);

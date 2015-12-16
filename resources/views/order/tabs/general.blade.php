@@ -38,7 +38,9 @@
                 <div class="control-container2">
                     <div class="input-group">
                         {!!Form::select('ship_id', $ships, $order->ship_id, ['class' => 'form-control', 'id' => 'ship_id'])!!}
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-plus" <="" span=""></span></div>
+                        <div class="input-group-addon showCreateForm" data-target-control="ship_id"
+                             data-create-form-url="{{route('new_ship_ajax')}}">
+                            <span class="glyphicon glyphicon-plus"></span></div>
                     </div>
                 </div>
             </div>
