@@ -64,6 +64,7 @@
     <script src="{{asset('/vendor/js/plugins/morris/morris-data.js')}}"></script>-->
     <script src="{{asset('/js/common.js')}}"></script>
     <script src="{{asset('/js/myselect.js')}}"></script>
+    <script src="{{asset('/js/order.js')}}"></script>
     <script src="{{asset('/js/attachments.js')}}"></script>
 </body>
 </html>

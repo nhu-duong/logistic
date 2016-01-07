@@ -63,11 +63,13 @@ class OrdersController extends Controller {
         } else {
             $order = Order::find($orderId);
         }
+        
         $agents = Agent::all()->lists('name', 'id');
         $buyers = Address::all()->where('is_buyer', 1)->lists('name', 'id');
         $sellers = Address::all()->where('is_seller', 1)->lists('name', 'id');
         $ships = Ship::all()->lists('name', 'id');
         $ports = Port::all()->lists('name', 'id');
+        $containers = $order->containers()->get();
         return view('order.edit', [
             'orderId' => $orderId,
             'order' => $order,
@@ -76,6 +78,7 @@ class OrdersController extends Controller {
             'sellers' => $sellers,
             'ships' => $ships,
             'ports' => $ports,
+            'containers' => $containers,
         ]);
     }
 

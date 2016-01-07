@@ -43,8 +43,8 @@
             </ul>
             <div class="tab-content">
                 @include('order.tabs.general')
-                <div id="tabContainers" role="tabpanel" class="tab-pane margin-top-10">Tab Containers</div>
                 @if($order->id)
+                    @include('order.tabs.containers')
                     @include('order.tabs.attachments')
                 @endif
             </div>

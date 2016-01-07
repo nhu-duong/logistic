@@ -16,6 +16,10 @@ var showError = function(message) {
     alert(message);
 };
 
+var showMessage = function(message) {
+    alert(message);
+};
+
 var showCommonError = function() {
     showError("There's an error, please reload the page and try again!");
 }

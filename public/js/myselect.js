@@ -59,7 +59,14 @@ myselect.submitForm = function() {
         data: $('#' + myselect.modalId + ' form').serialize(),
         success: function(resp) {
             if (resp.result === 1) {
-                myselect.addObjToSelect(resp.object.id, resp.object.name, myselect.targetControlId);
+                var customAction = resp.customAction;
+                if (typeof customAction !== 'undefined') {
+                    if (customAction === 'update-container') {
+                        myselect.addContainer(resp.object);
+                    }
+                } else {
+                    myselect.addObjToSelect(resp.object.id, resp.object.name, myselect.targetControlId);
+                }
                 myselect.closePopup();
             }
             
@@ -72,5 +79,8 @@ myselect.addObjToSelect = function(value, label, targetControlId) {
             .attr("value", value)
             .text(label))
         .val(value);
+};
+myselect.addContainer = function(dataObj) {
+    $('#table_container_body').append(dataObj.rowhtml);
 };
 myselect.init();

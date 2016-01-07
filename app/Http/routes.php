@@ -37,14 +37,18 @@ Route::get('/address/new_ajax/{forceType}', ['as' => 'new_address_ajax', 'uses' 
 Route::get('/address/edit/{id}', ['as' => 'edit_address', 'uses' => 'AddressController@editAction']);
 Route::post('/address/save', ['as' => 'save_address', 'uses' => 'AddressController@saveAction']);
 
-Route::get('/agent/new_ajax}', ['as' => 'new_agent_ajax', 'uses' => 'AgentController@ajaxNewAction']);
+Route::get('/agent/new_ajax', ['as' => 'new_agent_ajax', 'uses' => 'AgentController@ajaxNewAction']);
 Route::post('/agent/save', ['as' => 'save_agent', 'uses' => 'AgentController@saveAction']);
 
-Route::get('/ship/new_ajax}', ['as' => 'new_ship_ajax', 'uses' => 'ShipController@ajaxNewAction']);
+Route::get('/ship/new_ajax', ['as' => 'new_ship_ajax', 'uses' => 'ShipController@ajaxNewAction']);
 Route::post('/ship/save', ['as' => 'save_ship', 'uses' => 'ShipController@saveAction']);
 
-Route::get('/port/new_ajax}', ['as' => 'new_port_ajax', 'uses' => 'PortController@ajaxNewAction']);
+Route::get('/port/new_ajax', ['as' => 'new_port_ajax', 'uses' => 'PortController@ajaxNewAction']);
 Route::post('/port/save', ['as' => 'save_port', 'uses' => 'PortController@saveAction']);
+
+Route::get('/containers/new_ajax/{orderId}', ['as' => 'new_container_ajax', 'uses' => 'ContainersController@ajaxNewAction']);
+Route::post('/containers/save', ['as' => 'save_container', 'uses' => 'ContainersController@saveAction']);
+Route::delete('/containers/delete/{id}', ['as' => 'delete_container', 'uses' => 'ContainersController@deleteAction']);
 
 Route::post('/attachment/upload/{orderId}', ['as' => 'upload_attachment', 'uses' => 'AttachmentsController@uploadAction']);
 Route::get('/attachment/download/{id}', ['as' => 'download_attachment', 'uses' => 'AttachmentsController@downloadAction']);

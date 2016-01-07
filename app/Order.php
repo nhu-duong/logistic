@@ -44,4 +44,8 @@ class Order extends Model {
     {
         return $this->hasMany('App\Attachment');
     }
+    public function containers()
+    {
+        return $this->hasMany('App\Container');
+    }
 }
