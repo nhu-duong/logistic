@@ -122,7 +122,7 @@
                     <a href="{{route('list_orders')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Orders</a>
                 </li>
                 <li>
-                    <a href="tables.html"><i class="fa fa-fw fa-table"></i> Customers</a>
+                    <a href="{{route('list_address')}}"><i class="fa fa-fw fa-table"></i> Customers</a>
                 </li>
                 <li>
                     <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Agents</a>

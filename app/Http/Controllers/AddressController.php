@@ -33,9 +33,9 @@ class AddressController extends Controller {
      *
      * @return Response
      */
-    public function index()
+    public function indexAction()
     {
-        $addresses = Address::all();
+        $addresses = Address::paginate(8);
         return view('address.index', ['addresses' => $addresses]);
     }
     
@@ -58,6 +58,8 @@ class AddressController extends Controller {
         }
         return view('address.edit', [
             'address' => $address, 
+            'hasSubmitBtn' => true,
+            'forceType' => [],
         ]);
     }
     
@@ -88,7 +90,7 @@ class AddressController extends Controller {
                 'object' => $address,
             ]);
         } else {
-            return response()->redirectToAction('index');
+            return response()->redirectToRoute('list_address');
         }
     }
 }

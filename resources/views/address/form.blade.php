@@ -11,7 +11,7 @@
     <div class="form-group">
         <label class="control-label col-sm-3" for="shortname">Short name:</label>
         <div class="col-sm-9">
-            {!!Form::text('shortname', $address->shortname, ['class' => 'form-control', 'id' => 'shortname'])!!}
+            {!!Form::text('short_name', $address->short_name, ['class' => 'form-control', 'id' => 'short_name'])!!}
         </div>
     </div>
     <div class="form-group">
@@ -55,4 +55,8 @@
         </div>
     </div>
     @endforeach
+    
+    @if (isset($hasSubmitBtn) && $hasSubmitBtn) 
+    <input type="submit" class="btn btn-primary" value="Save" />
+    @endif
 {!! Form::close() !!}

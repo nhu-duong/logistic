@@ -2,7 +2,7 @@
 
 @section('title')
 <div class="edit_order_title">
-    <h1 class="pull-left">Create Address</h1>
+    <h1 class="pull-left">Create/Edit Address</h1>
 </div>
 @endsection
 
@@ -15,5 +15,5 @@
 @endsection
 
 @section('content')
-@includes('address.form')
+    @include('address.form')
 @endsection
