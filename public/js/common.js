@@ -51,11 +51,11 @@ var deleteItem = function(url, shouldBeRemovedSelector) {
 };
 
 var showError = function(message) {
-    alert(message);
+    bootbox.alert(message);
 };
 
 var showMessage = function(message) {
-    alert(message);
+    bootbox.alert(message);
 };
 
 var showCommonError = function() {
