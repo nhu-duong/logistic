@@ -7,17 +7,6 @@ use \Illuminate\Support\Facades\Input;
 
 class AddressController extends Controller {
 
-    /*
-    |--------------------------------------------------------------------------
-    | Home Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller renders your application's "dashboard" for users that
-    | are authenticated. Of course, you are free to change or remove the
-    | controller as you wish. It is just here to get your app started!
-    |
-    */
-
     /**
      * Create a new controller instance.
      *
@@ -42,7 +31,9 @@ class AddressController extends Controller {
     public function newAction()
     {
         return view('address.edit', [
-            'add' => new Address()
+            'address' => new Address(),
+            'hasSubmitBtn' => true,
+            'forceType' => [],
         ]);
     }
     

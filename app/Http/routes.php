@@ -38,8 +38,13 @@ Route::get('/address/edit/{id}', ['as' => 'edit_address', 'uses' => 'AddressCont
 Route::post('/address/save', ['as' => 'save_address', 'uses' => 'AddressController@saveAction']);
 Route::delete('/address/delete/{id}', ['as' => 'delete_address', 'uses' => 'AddressController@deleteAction']);
 
+
+Route::get('/agent', ['as' => 'list_agent', 'uses' => 'AgentController@indexAction']);
+Route::get('/agent/new', ['as' => 'new_agent', 'uses' => 'AgentController@newAction']);
 Route::get('/agent/new_ajax', ['as' => 'new_agent_ajax', 'uses' => 'AgentController@ajaxNewAction']);
+Route::get('/agent/edit/{id}', ['as' => 'edit_agent', 'uses' => 'AgentController@editAction']);
 Route::post('/agent/save', ['as' => 'save_agent', 'uses' => 'AgentController@saveAction']);
+Route::delete('/agent/delete/{id}', ['as' => 'delete_agent', 'uses' => 'AgentController@deleteAction']);
 
 Route::get('/ship/new_ajax', ['as' => 'new_ship_ajax', 'uses' => 'ShipController@ajaxNewAction']);
 Route::post('/ship/save', ['as' => 'save_ship', 'uses' => 'ShipController@saveAction']);

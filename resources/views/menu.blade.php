@@ -125,7 +125,7 @@
                     <a href="{{route('list_address')}}"><i class="fa fa-fw fa-table"></i> Customers</a>
                 </li>
                 <li>
-                    <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Agents</a>
+                    <a href="{{route('list_agent')}}"><i class="fa fa-fw fa-edit"></i> Agents</a>
                 </li>
                 <li>
                     <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Products</a>

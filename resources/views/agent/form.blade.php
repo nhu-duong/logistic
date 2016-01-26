@@ -25,4 +25,8 @@
             {!!Form::text('phone', $agent->phone, ['class' => 'form-control', 'id' => 'phone'])!!}
         </div>
     </div>
+    
+    @if (isset($hasSubmitBtn) && $hasSubmitBtn) 
+    <input type="submit" class="btn btn-primary" value="Save" />
+    @endif
 {!! Form::close() !!}

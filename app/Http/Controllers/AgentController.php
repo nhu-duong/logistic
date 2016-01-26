@@ -7,17 +7,6 @@ use \Illuminate\Support\Facades\Input;
 
 class AgentController extends Controller {
 
-    /*
-    |--------------------------------------------------------------------------
-    | Home Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller renders your application's "dashboard" for users that
-    | are authenticated. Of course, you are free to change or remove the
-    | controller as you wish. It is just here to get your app started!
-    |
-    */
-
     /**
      * Create a new controller instance.
      *
@@ -33,16 +22,19 @@ class AgentController extends Controller {
      *
      * @return Response
      */
-    public function index()
+    public function indexAction()
     {
-        $addresses = Address::all();
-        return view('address.index', ['addresses' => $addresses]);
+        $agents = Agent::paginate(8);
+        return view('agent.index', [
+            'agents' => $agents,
+        ]);
     }
     
     public function newAction()
     {
-        return view('address.edit', [
-            'add' => new Address()
+        return view('agent.edit', [
+            'agent' => new Agent(),
+            'hasSubmitBtn' => true,
         ]);
     }
     
@@ -52,12 +44,13 @@ class AgentController extends Controller {
      */
     public function editAction($id)
     {
-        $address = Address::find($id);
-        if (empty($address)) {
+        $agent = Agent::find($id);
+        if (empty($agent)) {
             App::abort(404);
         }
-        return view('address.edit', [
-            'address' => $address, 
+        return view('agent.edit', [
+            'agent' => $agent, 
+            'hasSubmitBtn' => true,
         ]);
     }
     
@@ -86,7 +79,17 @@ class AgentController extends Controller {
                 'object' => $agent,
             ]);
         } else {
-            return response()->redirectToAction('index');
+            return response()->redirectToRoute('list_agent');
         }
+    }
+    
+    /**
+     * 
+     * @param integer $id
+     * @return Model
+     */
+    public function getModelObject($id)
+    {
+        return Agent::find($id);
     }
 }
