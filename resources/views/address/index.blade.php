@@ -34,7 +34,7 @@
             </thead>
             <tbody>
                 @foreach ($addresses as $cus)
-                <tr>
+                <tr id="address_{{$cus->id}}">
                     <td>{{$cus->name}}</td>
                     <td>{{$cus->short_name}}</td>
                     <td>{{$cus->address}}</td>
@@ -45,7 +45,12 @@
                     <td>{{$cus->is_seller ? 'Yes' : 'No'}}</td>
                     <td style="padding: 0; text-align: center;"><div>
                             <a href="{{route('edit_address', ['id' => $cus->id])}}" class="label label-default"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a href="javascript:void(0);" class="label label-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                            <a href="javascript:void(0);" title="Delete {{$cus->name}}" 
+                                data-should-be-removed="#address_{{$cus->id}}"
+                                data-delete-url="{{route('delete_address', ['id' => $cus->id])}}" 
+                                class="label label-danger margin-left-5 delete-item">
+                                 <i class="glyphicon glyphicon-remove"></i>
+                            </a>
                         </div></td>
                 </tr>
                 @endforeach

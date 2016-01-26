@@ -93,4 +93,14 @@ class AddressController extends Controller {
             return response()->redirectToRoute('list_address');
         }
     }
+    
+    /**
+     * 
+     * @param integer $id
+     * @return Model
+     */
+    public function getModelObject($id)
+    {
+        return Address::find($id);
+    }
 }
