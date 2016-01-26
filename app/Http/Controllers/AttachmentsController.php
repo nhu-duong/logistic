@@ -100,15 +100,14 @@ class AttachmentsController extends Controller {
         return response()->download($filePath, $attachment->file_name);
     }
     
-    public function deleteAction($id)
+    /**
+     * 
+     * @param integer $id
+     * @return Model
+     */
+    public function getModelObject($id)
     {
-        $attachment = Attachment::find($id);
-        if (empty($attachment)) {
-            App::abort(404);
-        }
-        $attachment->delete();
-        Session::flash('success', _('Attachment deleted successfully!'));
-        return $this->redirectBack();
+        return Attachment::find($id);
     }
     
     /**

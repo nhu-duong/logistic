@@ -100,14 +100,13 @@ class ContainersController extends Controller {
         }
     }
     
-    public function deleteAction($id)
+    /**
+     * 
+     * @param integer $id
+     * @return Model
+     */
+    public function getModelObject($id)
     {
-        $container = Container::find($id);
-        if (empty($container)) {
-            return response()->json(['result' => 0, 'errorCode' => 101, 'message' => 'Container not found!']);
-        }
-        $container->delete();
-        
-        return response()->json(['result' => 1, 'contId' => $id]);
+        return Container::find($id);
     }
 }

@@ -57,6 +57,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('/vendor/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/vendor/js/bootbox.min.js')}}"></script>
 
     <!-- Morris Charts JavaScript -->
 <!--    <script src="{{asset('/vendor/js/plugins/morris/raphael.min.js')}}"></script>
