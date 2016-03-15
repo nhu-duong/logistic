@@ -30,6 +30,7 @@ Route::post('/auth/user-info', 'Auth\AuthController@postUserInfo');
 Route::get('/orders', ['as' => 'list_orders', 'uses' => 'OrdersController@index']);
 Route::get('/orders/edit/{orderId}', ['as' => 'edit_order', 'uses' => 'OrdersController@getEditOrder']);
 Route::post('/orders/save/{orderId}', ['as' => 'save_order', 'uses' => 'OrdersController@postSaveOrder']);
+Route::get('/orders/test', ['as' => 'test_order', 'uses' => 'OrdersController@test']);
 
 Route::get('/address', ['as' => 'list_address', 'uses' => 'AddressController@indexAction']);
 Route::get('/address/new', ['as' => 'new_address', 'uses' => 'AddressController@newAction']);
@@ -59,3 +60,5 @@ Route::delete('/containers/delete/{id}', ['as' => 'delete_container', 'uses' => 
 Route::post('/attachment/upload/{orderId}', ['as' => 'upload_attachment', 'uses' => 'AttachmentsController@uploadAction']);
 Route::get('/attachment/download/{id}', ['as' => 'download_attachment', 'uses' => 'AttachmentsController@downloadAction']);
 Route::delete('/attachment/delete/{id}', ['as' => 'delete_attachment', 'uses' => 'AttachmentsController@deleteAction']);
+
+Route::get('/pdf/housebill/{id}', ['as' => 'print_housebill', 'uses' => 'PdfController@houseBillAction']);

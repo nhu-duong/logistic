@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
 use App\Order;
 use Validator;
 use App\Agent;
@@ -10,7 +11,7 @@ use App\Ship;
 use App\Port;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
-//use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\PDF;
 
 class OrdersController extends Controller {
     /*
@@ -94,8 +95,11 @@ class OrdersController extends Controller {
     }
 
     public function test() {
-        $pdf = PDF::loadView('pdf.invoice', ['name' => 'Nhu']);
-        return $pdf->download('invoice.pdf');
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('pdf.invoice', ['name' => 'Nhu']);
+        return $pdf->stream();
+//        $pdf = PDF::loadView('pdf.invoice', ['name' => 'Nhu']);
+//        return $pdf->download('invoice.pdf');
     }
 
 }

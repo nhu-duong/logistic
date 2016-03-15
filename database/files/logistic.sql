@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2015 at 06:32 PM
+-- Generation Time: Mar 15, 2016 at 01:36 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -40,26 +40,21 @@ CREATE TABLE IF NOT EXISTS `address` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Table contain information of seller, buyer, agent' AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Table contain information of seller, buyer, agent' AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `address`
 --
 
 INSERT INTO `address` (`id`, `name`, `short_name`, `address`, `email`, `phone`, `fax`, `is_buyer`, `is_seller`, `is_agent`, `created_at`, `updated_at`) VALUES
-(1, 'Buyer 1', 'short1', 'dia chi cua khach hang 1', 'buyer1@logistic.com', '098632', '098345632', 1, 0, 0, '2015-08-08 19:58:38', '2015-08-08 19:58:38'),
+(1, 'Buyer 1 updated', 'short1', 'dia chi cua khach hang 1', 'buyer1@logistic.com', '098632', '098345632', 1, 0, 0, '2015-08-08 19:58:38', '2016-01-07 18:09:29'),
 (2, 'Seller 1', 'sellershortname', 'dia chi cua nguoi ban 1', 'seller1@logistic.com', '098456', '0293520395', 0, 1, 0, '2015-08-08 20:00:41', '2015-08-08 20:00:41'),
 (3, 'Both buyer and seller', 'buyandsell', 'Address of this buyer and seller', 'buyandsell@logistic.com', '0945723', '09342523', 1, 1, 0, '2015-08-08 20:01:26', '2015-08-08 20:01:26'),
-(4, 'Test seller', NULL, '64 144 Ben Tre', 'duongtannhu@yahoo.com', '04327840923', '032947', 1, 1, 0, '2015-12-15 16:40:14', '2015-12-15 16:40:14'),
-(5, 'Test buyer', NULL, 'a;lsdkjf', 'abc@yahoo.com', '30294', '2039', 1, 0, 0, '2015-12-15 16:49:38', '2015-12-15 16:49:38'),
-(6, 'Test buyer2', NULL, 'asd;lkfj', 'nhu@duong.com', '230948', 'w0938', 1, 0, 0, '2015-12-15 16:50:12', '2015-12-15 16:50:12'),
-(7, 'Test buyer 4', NULL, 'adl;ksfjad;', 'nhu@duong2.com', '0239483', '230984', 1, 0, 0, '2015-12-15 16:51:51', '2015-12-15 16:51:51'),
-(8, 'Test duplicate', NULL, 'lkdsafj;da', 'nhu@duong.com', '20394', '203984', 1, 1, 0, '2015-12-15 16:52:17', '2015-12-15 16:52:17'),
-(9, 'Test agent', NULL, 'a;lsdfjd;l', 'nhu@tan.com', '320948', '23090', 1, 0, 1, '2015-12-15 16:54:21', '2015-12-15 16:54:21'),
-(10, 'Test seller', NULL, 'ad;lskfj', 'asd@lskjf.com', '320948302', '0298032', 1, 0, 0, '2015-12-16 17:07:16', '2015-12-16 17:07:16'),
+(4, 'Test seller', 'updated-test-seller', '64 144 Ben Tre', 'duongtannhu@yahoo.com', '04327840923', '032947', 1, 1, 0, '2015-12-15 16:40:14', '2016-01-26 16:47:36'),
 (11, 'Buyeronly', NULL, 'l;sadkfj', 'lsdjf@lksdjf.coj', '329873', '2309875923', 1, 0, 0, '2015-12-16 17:27:14', '2015-12-16 17:27:14'),
 (12, 'Seller only', NULL, 'as;ldfj', 'lasdjf@dosif.sdlkf', '320', '02450', 0, 1, 0, '2015-12-16 17:27:38', '2015-12-17 00:28:22'),
-(13, 'Seller only 1', NULL, 'sdl;afkj', '.as,dfn@lksdjf.sldfkj', '20398302', '23958', 0, 1, 0, '2015-12-16 17:29:45', '2015-12-16 17:29:45');
+(13, 'Seller only 1', NULL, 'sdl;afkj', '.as,dfn@lksdjf.sldfkj', '20398302', '23958', 0, 1, 0, '2015-12-16 17:29:45', '2015-12-16 17:29:45'),
+(15, 'Duong Tan Nhu', '2 Nhu', '64 144 Ben Tre', 'duongtannhu@yahoo.com', '0987634623', '093452832579', 1, 0, 0, '2016-03-14 14:19:07', '2016-03-14 14:19:07');
 
 -- --------------------------------------------------------
 
@@ -104,7 +99,45 @@ CREATE TABLE IF NOT EXISTS `attachments` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `attachments`
+--
+
+INSERT INTO `attachments` (`id`, `order_id`, `file_name`, `mime`, `created_by`, `created_at`, `updated_at`) VALUES
+(2, 8, 'Before-After_Maintenance_Report_151225.docx', 'application/vnd.openxmlformats-officedocument.word', 1, '2016-01-07 10:21:30', '2016-01-07 10:21:30'),
+(3, 8, '1601083_292309747631075_4422712696992603027_n.jpg', 'image/jpeg', 1, '2016-01-07 10:21:44', '2016-01-07 10:21:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `containers`
+--
+
+CREATE TABLE IF NOT EXISTS `containers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL,
+  `container_no` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `seal_no` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `cont_type` int(11) DEFAULT NULL,
+  `packages` int(11) NOT NULL,
+  `weight` decimal(10,0) NOT NULL,
+  `volume` decimal(10,0) NOT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `shipping_marks` text COLLATE utf8_unicode_ci,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `containers`
+--
+
+INSERT INTO `containers` (`id`, `order_id`, `container_no`, `seal_no`, `cont_type`, `packages`, `weight`, `volume`, `description`, `shipping_marks`, `created_at`, `updated_at`) VALUES
+(1, 8, 'CON123', 'SEAL432', 20, 1, '2', '3', 'description', 'marks', '2015-12-28 16:36:42', '2015-12-28 16:36:42'),
+(5, 8, 'CON234', 'SEALx', 40, 4, '3', '2', 'No des', 'NM', '2016-01-07 09:28:39', '2016-01-07 09:28:39');
 
 -- --------------------------------------------------------
 
@@ -222,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `ports` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Table contain information of seller, buyer, agent' AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Table contain information of seller, buyer, agent' AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `ports`
@@ -233,7 +266,8 @@ INSERT INTO `ports` (`id`, `name`, `address`, `created_at`, `updated_at`) VALUES
 (2, 'Port 2', 'Địa chỉ của cảng 2', '2015-08-08 20:00:41', '2015-08-08 21:19:35'),
 (3, 'Port 3', 'Địa chỉ của cảng 3', '2015-08-08 20:01:26', '2015-08-08 21:19:40'),
 (4, 'New Ajax Port', 'la;kfj;dsakfjal', '2015-12-16 17:22:30', '2015-12-16 17:22:30'),
-(5, 'New Dis Port', 'a;ldskjf;adslfj;asdfkl', '2015-12-16 17:23:26', '2015-12-16 17:23:26');
+(5, 'New Dis Port', 'a;ldskjf;adslfj;asdfkl', '2015-12-16 17:23:26', '2015-12-16 17:23:26'),
+(6, 'Test Loading', 'aldjf a;lsdkjf', '2015-12-28 16:51:57', '2015-12-28 16:51:57');
 
 -- --------------------------------------------------------
 
@@ -279,7 +313,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `phone`, `email`, `password`, `remember_token`, `is_login`, `activation_code`, `reset_pass_code`, `reset_pass_expired_at`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', '0987654', 'admin@phuclocforwarding.com', '123456', NULL, 0, '', NULL, NULL, 1, '2016-01-08 00:20:03', '2016-01-08 00:20:03');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
