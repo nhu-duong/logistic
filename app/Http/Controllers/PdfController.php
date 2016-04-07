@@ -4,6 +4,7 @@ use App\Agent;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\PDF;
+use App\Order;
 
 class PdfController extends Controller {
 
@@ -24,8 +25,9 @@ class PdfController extends Controller {
      */
     public function houseBillAction($orderId)
     {
+        $order = Order::find($orderId);
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('pdf.housebill', ['name' => 'Nhu']);
+        $pdf->loadView('pdf.housebill', ['order' => $order, 'name' => 'Nhu']);
         return $pdf->stream();
     }
 }
