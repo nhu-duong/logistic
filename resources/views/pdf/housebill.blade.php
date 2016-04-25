@@ -69,15 +69,21 @@
             .caption_1 {
                 font-size: 10px;
             }
+            .caption_1 {
+                font-size: 12px;
+            }
             .content_1 {
-                font-size: 14px;
-                line-height: 14px;
+                font-size: 15px;
+                line-height: 15px;
             }
             .content_2 {
                 font-size: 9px;
             }
             .height-80 {
                 height: 80px;
+            }
+            .height-90 {
+                height: 90px;
             }
             .height-30 {
                 height: 16px;
@@ -128,19 +134,19 @@
                 <td>
                     <table>
                         <tr>
-                            <td class="bdb height-80" colspan="3">
+                            <td class="bdb height-90" colspan="3">
                                 <p class="caption_1">Shipper</p>
                                 <p class="content_1">LIEN A CO., LTD.<br/>55/1A KHUONG VIET STREET, PHU TRUNG WARD,<br/>TAN PHU DISTRICT, HO CHI MINH CITY, VIETNAM</p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="bdb height-80" colspan="3">
+                            <td class="bdb height-90" colspan="3">
                                 <p class="caption_1">Consignee</p>
                                 <p class="content_1">PHIL. AUSTRALIAN BRASS BED<br/>11 2ND AVE., STA MARIA IND.ESTATE, BAGUMBAYAN TAGUIG CITY, PHILIPPINES 1631</p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="bdb height-80" colspan="3">
+                            <td class="bdb height-90" colspan="3">
                                 <p class="caption_1">Notify Party</p>
                                 <p class="content_1">SAME AS CNEE</p>
                             </td>
@@ -166,7 +172,7 @@
                             </td>
                             <td class="bdb" width="25%">
                                 <p class="caption_1">Port of loading</p>
-                                <p class="content_1">HO CHI MINH (CAT LAI)</p>
+                                <p class="content_1">HO CHI MINH HO CHI MINH HO CHI MINH HO CHI MINH (CAT LAI)</p>
                             </td>
                         </tr>
                         <tr>
@@ -192,69 +198,69 @@
                 </td>
             </tr>
         </table>
-        <table>
+        <table class="bdb" style="margin-top: 10px;">
             <tr>
-                <td class="font-size-9" width="3%">
+                <td class="font-size-9 bdr" width="3%">
                     <div class="rotate270"><p>Particulars furnished by Shipper</p></td></div>
-                <td width="30%">
-                    <p>Marks & Nos.</p>
-                    <p>FCL/FCL</p>
-                    <p>CONT/SEAL NO:</p>
-                    <p>TUCKU1491975/DLU6721</p>
+                <td class="bdr" width="29%">
+                    <p class="caption_1">Marks & Nos.</p>
+                    <p class="content_1">FCL/FCL</p>
+                    <p class="content_1">CONT/SEAL NO:</p>
+                    <p class="content_1">TUCKU1491975/DLU6721</p>
 
                     <p>N/M</p>
                 </td>
-                <td width="10%">
-                    <p>Quantity</p>
-                    <p>98 PACKAGES</p>
-                    <p>1X20GP</p>
+                <td class="bdr" width="11%">
+                    <p class="caption_1">Quantity</p>
+                    <p class="content_1">98 PACKAGES</p>
+                    <p class="content_1">1X20GP</p>
                 </td>
-                <td width="37%">
-                    <p>Kind of packages; Description of goods</p>
-                    <p>"SHIPPER'S COUNT, LOAD, STOWAGE AND SEAL"</p>
-                    <p>LATEX MATTRESS - DENSITY 75KGS/M3</p>
-                    <p>NET WEIGHT: 1954.730 KGS</p>
-                    <p>SHIPPED ON BOARD:</p>
-                    <p>12-MAY-2015</p>
-                    <p>"FREIGHT COLLECT"</p>
-                    <p>TOTAL: ONE (01X20GP) CONTAINER ONLY</p>
+                <td class="bdr" width="35%">
+                    <p class="caption_1">Kind of packages; Description of goods</p>
+                    <p class="content_1">"SHIPPER'S COUNT, LOAD, STOWAGE AND SEAL"</p>
+                    <p class="content_1">LATEX MATTRESS - DENSITY 75KGS/M3</p>
+                    <p class="content_1">NET WEIGHT: 1954.730 KGS</p><p>&nbsp;</p>
+                    <p class="content_1">SHIPPED ON BOARD:</p>
+                    <p class="content_1">12-MAY-2015</br/></p><p>&nbsp;</p>
+                    <p class="content_1">"FREIGHT COLLECT"</br/></p><p>&nbsp;</p>
+                    <p class="content_1">TOTAL: ONE (01X20GP) CONTAINER ONLY</p>
                 </td>
-                <td width="10%">
-                    <p>Gross weight</p>
-                    <p>1,993.930 KGS</p>
+                <td class="bdr" width="11%">
+                    <p class="caption_1">Gross weight</p>
+                    <p class="content_1">1,993.930 KGS</p>
                 </td>
-                <td width="10%">
-                    <p>Measurement</p>
-                    <p>26.060 CBM</p>
+                <td width="11%">
+                    <p class="caption_1">Measurement</p>
+                    <p class="content_1">26.060 CBM</p>
                 </td>
             </tr>
         </table>
         <table>
             <tr>
-                <td rowspan="3" colspan="3">
-                    <p></p>
-                    <p>MACOLINE FREIGHT FORWARDING SERVICES UNIT 1710 17TH FLOOR CITY LAND HERRERA TOWER 98 V.A RUFINO CORNER VALERO STREET SALCEDO VILLAGE MAKATI CITY 1227 PHILIPPINES</p>
-                    <p>TEL.NO.: +632-844-1971 / 843-1105</p>
-                    <p>FAX NO.: +632-843-1767</p>
+                <td class="bdr bdb" rowspan="3" colspan="3" width="50%">
+                    <p class="caption_1">For Delivery of Goods apply to</p>
+                    <p class="content_1">MACOLINE FREIGHT FORWARDING SERVICES UNIT 1710 17TH FLOOR CITY LAND HERRERA TOWER 98 V.A RUFINO CORNER VALERO STREET SALCEDO VILLAGE MAKATI CITY 1227 PHILIPPINES</p>
+                    <p class="content_1">TEL.NO.: +632-844-1971 / 843-1105</p>
+                    <p class="content_1">FAX NO.: +632-843-1767</p>
                 </td>
-                <td>
-                    <p>IN WITNESS whereof the original Bills of Lading stated opposite have been issued one of which being accomplished the other(s) to be void</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>Place and date of issue</p>
-                    <p>HOCHIMINH CITY, MAY 12, 2015</p>
+                <td class="bdb">
+                    <p class="caption_1">IN WITNESS whereof the original Bills of Lading stated opposite have been issued one of which being accomplished the other(s) to be void</p>
                 </td>
             </tr>
             <tr>
-                <td>Signed on behalf of the Carrier</td>
+                <td class="bdb">
+                    <p class="caption_1">Place and date of issue</p>
+                    <p class="content_1">HOCHIMINH CITY, MAY 12, 2015</p>
+                </td>
             </tr>
             <tr>
-                <td>Freight and Charge</td>
-                <td>Prepaid</td>
-                <td>Collect</td>
-                <td>PHUCLOC FORWARDING CO.</td>
+                <td class="caption_1">Signed on behalf of the Carrier</td>
+            </tr>
+            <tr>
+                <td class="caption_2">Freight and Charge</td>
+                <td class="caption_2">Prepaid</td>
+                <td class="caption_2">Collect</td>
+                <td class="caption_2"><strong>PHUCLOC FORWARDING CO.</strong></td>
             </tr>
             <tr>
                 <td>"FREIGHT COLLECT"</td>

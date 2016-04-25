@@ -30,7 +30,7 @@ class PdfController extends Controller {
         if (isset($_GET['test'])) {
             return view('pdf.housebill', ['order' => $order, 'name' => 'Nhu', 'test' => 1]);
         }
-        $pdf   = PDF::loadView('pdf.housebill', ['order' => $order, 'name' => 'Nhu', 'test' => 1]);
+        $pdf   = PDF::loadView('pdf.housebill', ['order' => $order, 'name' => 'Nhu', 'test' => 0]);
 
         // Set encoding for pdf file
         $pdf->setOption('encoding', 'utf-8');
@@ -40,7 +40,7 @@ class PdfController extends Controller {
         $pdf->setOption('footer-spacing', 2);
         $pdf->setOption('header-spacing', 2);
 
-        $path = storage_path('test_' . time() . '.pdf');
+//        $path = storage_path('test_' . time() . '.pdf');
         // Define file path: should define in config file
 //        $destinationPath = Config::get('paths.ftp_data_folder');
 //        $fileName        = '' . $visitee->user_id . '_' . 'FB' . $visitee->createAt;
