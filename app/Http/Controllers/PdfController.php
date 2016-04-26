@@ -34,8 +34,8 @@ class PdfController extends Controller {
 
         // Set encoding for pdf file
         $pdf->setOption('encoding', 'utf-8');
-        $pdf->setOption('margin-bottom', 20);
-        $pdf->setOption('margin-top', 20);
+//        $pdf->setOption('margin-bottom', 20);
+//        $pdf->setOption('margin-top', 10);
         $pdf->setOption('print-media-type', true);
         $pdf->setOption('footer-spacing', 2);
         $pdf->setOption('header-spacing', 2);

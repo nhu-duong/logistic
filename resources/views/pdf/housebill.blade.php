@@ -10,6 +10,10 @@
                 line-height: 16px;
                 font-size: 16px;
             }
+            h3 {
+                text-align: center;
+                font-size: 16px;
+            }
             table {
                 border-collapse: collapse;
             }
@@ -69,12 +73,12 @@
             .caption_1 {
                 font-size: 10px;
             }
-            .caption_1 {
-                font-size: 12px;
+            .caption_2 {
+                font-size: 11px;
             }
             .content_1 {
-                font-size: 15px;
-                line-height: 15px;
+                font-size: 13px;
+                line-height: 13px;
             }
             .content_2 {
                 font-size: 9px;
@@ -88,7 +92,7 @@
             .height-30 {
                 height: 16px;
             }
-            .height-60 {
+            .height-40 {
                 height: 40px !important;
             }
             .pl2 {
@@ -178,7 +182,7 @@
                         <tr>
                             <td class="bdb bdr">
                                 <p class="caption_1">Port of discharge</p>
-                                <p class="content_1 height-60">MANILA NORTH HARBOUR</p>
+                                <p class="content_1 height-40">MANILA NORTH HARBOUR</p>
                             </td>
                             <td class="bdb bdr"></td>
                             <td class="bdb">
@@ -188,7 +192,7 @@
                         </tr>
                     </table>
                 </td>
-                <td class="bdl bdb pl2" width="44%">
+                <td class="bdl bdb pl2" width="44%" style="text-align: justify; text-justify: inter-word;">
                     <h3>PHUC LOC FORWARDING CO.</h3>
                     <p class="content_2">RECEIVED by the carrier the goods as specified above in apparent good order and condition unless otherwise stated, to be transported to such place as agreed, authorised or permitted herein and subject to all the terms and conditions appearing on the front and reverse of this Bill of Lading to which the Merchant agrees by accepting this Bill of Lading any local privileges and customs notwithstanding. The particular given above as stated by the shipper and the weight, measure, quantity, condition, contents and value of the goods are unknown to the Carrier.</p>
                     <p class="content_2">Note:</p>
@@ -215,14 +219,14 @@
                     <p class="content_1">98 PACKAGES</p>
                     <p class="content_1">1X20GP</p>
                 </td>
-                <td class="bdr" width="35%">
+                <td class="bdr" width="35%" style="height: 250px;">
                     <p class="caption_1">Kind of packages; Description of goods</p>
                     <p class="content_1">"SHIPPER'S COUNT, LOAD, STOWAGE AND SEAL"</p>
                     <p class="content_1">LATEX MATTRESS - DENSITY 75KGS/M3</p>
                     <p class="content_1">NET WEIGHT: 1954.730 KGS</p><p>&nbsp;</p>
                     <p class="content_1">SHIPPED ON BOARD:</p>
-                    <p class="content_1">12-MAY-2015</br/></p><p>&nbsp;</p>
-                    <p class="content_1">"FREIGHT COLLECT"</br/></p><p>&nbsp;</p>
+                    <p class="content_1">12-MAY-2015</p><p>&nbsp;</p>
+                    <p class="content_1">"FREIGHT COLLECT"</p><p>&nbsp;</p>
                     <p class="content_1">TOTAL: ONE (01X20GP) CONTAINER ONLY</p>
                 </td>
                 <td class="bdr" width="11%">
@@ -237,18 +241,18 @@
         </table>
         <table>
             <tr>
-                <td class="bdr bdb" rowspan="3" colspan="3" width="50%">
+                <td class="bdr bdb" rowspan="3" colspan="3" width="50%" style="padding-top: 5px; height: 180px;">
                     <p class="caption_1">For Delivery of Goods apply to</p>
                     <p class="content_1">MACOLINE FREIGHT FORWARDING SERVICES UNIT 1710 17TH FLOOR CITY LAND HERRERA TOWER 98 V.A RUFINO CORNER VALERO STREET SALCEDO VILLAGE MAKATI CITY 1227 PHILIPPINES</p>
                     <p class="content_1">TEL.NO.: +632-844-1971 / 843-1105</p>
                     <p class="content_1">FAX NO.: +632-843-1767</p>
                 </td>
                 <td class="bdb">
-                    <p class="caption_1">IN WITNESS whereof the original Bills of Lading stated opposite have been issued one of which being accomplished the other(s) to be void</p>
+                    <p class="caption_1" style="padding-top: 5px; height: 120px;">IN WITNESS whereof the original Bills of Lading stated opposite have been issued one of which being accomplished the other(s) to be void</p>
                 </td>
             </tr>
             <tr>
-                <td class="bdb">
+                <td class="bdb" style="height: 40px;">
                     <p class="caption_1">Place and date of issue</p>
                     <p class="content_1">HOCHIMINH CITY, MAY 12, 2015</p>
                 </td>
@@ -256,17 +260,17 @@
             <tr>
                 <td class="caption_1">Signed on behalf of the Carrier</td>
             </tr>
-            <tr>
-                <td class="caption_2">Freight and Charge</td>
-                <td class="caption_2">Prepaid</td>
-                <td class="caption_2">Collect</td>
-                <td class="caption_2"><strong>PHUCLOC FORWARDING CO.</strong></td>
+            <tr style="padding-top: 5px;">
+                <td style="padding-top: 5px;" class="caption_2">Freight and Charge</td>
+                <td style="padding-top: 5px;" class="caption_2">Prepaid</td>
+                <td style="padding-top: 5px;" class="caption_2">Collect</td>
+                <td style="padding-top: 5px;" class="caption_2"><strong>PHUCLOC FORWARDING CO.</strong></td>
             </tr>
             <tr>
-                <td>"FREIGHT COLLECT"</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td style="padding-top: 10px;" class="content_1">"FREIGHT COLLECT"</td>
+                <td class="content_1">&nbsp;</td>
+                <td class="content_1">&nbsp;</td>
+                <td class="content_1">&nbsp;</td>
             </tr>
         </table>
     </body>
