@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('title')
 <h1 class="page-header">
