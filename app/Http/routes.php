@@ -11,22 +11,17 @@
 |
 */
 
-Route::get('/', function() {
-	return redirect('/home');
+Route::get('/', function () {
+    return redirect('/home');
 });
 Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
-Route::get('/resendEmail', 'Auth\AuthController@resendEmail');
-Route::get('/activate/{code}', 'Auth\AuthController@activateAccount');
 Route::post('/home/add-record', 'HomeController@postAddRecord');
 Route::get('/home/add-record', 'HomeController@getAddRecord');
 Route::get('/home/list-record', 'HomeController@getListRecord');
 Route::post('/image/add-record', 'ImageController@saveImage');
 Route::post('/auth/user-info', 'Auth\AuthController@postUserInfo');
 
+Route::auth();
 Route::get('/orders', ['as' => 'list_orders', 'uses' => 'OrdersController@index']);
 Route::get('/orders/edit/{orderId}', ['as' => 'edit_order', 'uses' => 'OrdersController@getEditOrder']);
 Route::post('/orders/save/{orderId}', ['as' => 'save_order', 'uses' => 'OrdersController@postSaveOrder']);

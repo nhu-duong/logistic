@@ -1,10 +1,14 @@
-<?php namespace App\Http\Controllers;
+<?php
 
+namespace App\Http\Controllers;
+
+use App\Http\Requests;
 use App\Record;
 use Validator;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller {
+class HomeController extends Controller
+{
 
 	/*
 	|--------------------------------------------------------------------------
@@ -40,7 +44,7 @@ class HomeController extends Controller {
         public function getListRecord()
         {
             $records = Record::all();
-            $types = ['None', 'ElecticitÃ©', 'Eau', 'Gaz'];
+            $types = ['None', 'Electicité', 'Eau', 'Gaz'];
             return view('records', ['records' => $records, 'types' => $types]);
         }
         
