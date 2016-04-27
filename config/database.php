@@ -54,10 +54,10 @@ return [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', 'smartrisk'),
-			'username'  => env('DB_USERNAME', 'smartrisk'),
-			'password'  => env('DB_PASSWORD', 'jackiechan87'),
+			'host'     => 'localhost',
+			'database' => 'logistic',
+			'username' => 'logistic',
+			'password' => 't9uQqSBuBAC7awfj',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

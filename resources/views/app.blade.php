@@ -8,17 +8,19 @@
 
     <!--<link href="{{ asset('/css/app.css') }}" rel="stylesheet">-->
 
-    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('/vendor/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="vendor/css/sb-admin.css" rel="stylesheet">
+    <link href="{{asset('/vendor/css/sb-admin.css')}}" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="vendor/css/plugins/morris.css" rel="stylesheet">
+    <link href="{{asset('/vendor/css/plugins/morris.css')}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 
+    <!-- Custom style -->
+    <link href="{{asset('/css/app.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -34,32 +36,36 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->
-                <div class="row">
+                <div class="row" style="margin-left: 0; margin-right: 0;">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            @yield('title')
-                        </h1>
-                        @yield('breadcrumb')
+                        @yield('title')
                     </div>
                 </div>
                 
                 @yield('content')
             </div>
+            @include('footer')
         </div>
         <!-- /#page-wrapper -->
 
     </div>
 
+    @yield('customCreateFormModal')
 
     <!-- jQuery -->
-    <script src="vendor/js/jquery.js"></script>
+    <script src="{{asset('/vendor/js/jquery.js')}}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/js/bootstrap.min.js"></script>
+    <script src="{{asset('/vendor/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/vendor/js/bootbox.min.js')}}"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="vendor/js/plugins/morris/raphael.min.js"></script>
-    <script src="vendor/js/plugins/morris/morris.min.js"></script>
-    <script src="vendor/js/plugins/morris/morris-data.js"></script>
+<!--    <script src="{{asset('/vendor/js/plugins/morris/raphael.min.js')}}"></script>
+    <script src="{{asset('/vendor/js/plugins/morris/morris.min.js')}}"></script>
+    <script src="{{asset('/vendor/js/plugins/morris/morris-data.js')}}"></script>-->
+    <script src="{{asset('/js/common.js')}}"></script>
+    <script src="{{asset('/js/myselect.js')}}"></script>
+    <script src="{{asset('/js/order.js')}}"></script>
+    <script src="{{asset('/js/attachments.js')}}"></script>
 </body>
 </html>

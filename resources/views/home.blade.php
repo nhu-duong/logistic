@@ -1,7 +1,9 @@
 @extends('app')
 
 @section('title')
+<h1 class="page-header">
     Dashboard <small>Statistics Overview</small>
+</h1>
 @endsection
 
 @section('breadcrumb')

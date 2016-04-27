@@ -24,4 +24,15 @@ abstract class Controller extends BaseController {
         }
         return 0;
     }
+    
+    public function deleteAction($id)
+    {
+        $item = $this->getModelObject($id);
+        if (empty($item)) {
+            return response()->json(['result' => 0, 'errorCode' => 101, 'message' => 'Item not found!']);
+        }
+        $item->delete();
+        
+        return response()->json(['result' => 1, 'deletedId' => $id]);
+    }
 }
