@@ -162,9 +162,11 @@
                         <li>
                             <a href="#">Ports</a>
                         </li>
+                        @can('manage_user')
                         <li>
                             <a href="{{route('list_user')}}">Users</a>
                         </li>
+                        @endcan
                         <li>
                             <a href="#">Codes</a>
                         </li>

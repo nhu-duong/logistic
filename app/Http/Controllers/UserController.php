@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller {
 
@@ -27,6 +28,9 @@ class UserController extends Controller {
     public function __construct()
     {
         $this->middleware('auth');
+        if (Gate::denies('manage_user')) {
+            abort(403);
+        }
     }
 
     /**
