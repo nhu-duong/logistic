@@ -89,4 +89,14 @@ class ShipController extends Controller {
             return response()->redirectToAction('index');
         }
     }
+    
+    /**
+     * 
+     * @param integer $id
+     * @return Model
+     */
+    public function getModelObject($id)
+    {
+        return Ship::find($id);
+    }
 }
