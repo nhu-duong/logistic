@@ -130,6 +130,7 @@
             </li> -->
         </ul>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        @if (Auth::check())
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
@@ -162,7 +163,7 @@
                             <a href="#">Ports</a>
                         </li>
                         <li>
-                            <a href="#">Users</a>
+                            <a href="{{route('list_user')}}">Users</a>
                         </li>
                         <li>
                             <a href="#">Codes</a>
@@ -171,5 +172,6 @@
                 </li>
             </ul>
         </div>
+        @endif
         <!-- /.navbar-collapse -->
     </nav>
