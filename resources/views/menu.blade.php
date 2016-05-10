@@ -160,7 +160,7 @@
                             <a href="#">Trucks</a>
                         </li>
                         <li>
-                            <a href="#">Ports</a>
+                            <a href="{{route('list_port')}}">Ports</a>
                         </li>
                         @can('manage_user')
                         <li>

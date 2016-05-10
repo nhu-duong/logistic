@@ -33,16 +33,17 @@ class PortController extends Controller {
      *
      * @return Response
      */
-    public function index()
+    public function indexAction()
     {
-        $addresses = Address::all();
-        return view('address.index', ['addresses' => $addresses]);
+        $ports = Port::paginate(8);
+        return view('port.index', ['ports' => $ports]);
     }
     
     public function newAction()
     {
-        return view('address.edit', [
-            'add' => new Address()
+        return view('port.edit', [
+            'port' => new Port(), 
+            'hasSubmitBtn' => true,
         ]);
     }
     
@@ -52,12 +53,13 @@ class PortController extends Controller {
      */
     public function editAction($id)
     {
-        $address = Address::find($id);
-        if (empty($address)) {
+        $port = Port::find($id);
+        if (empty($port)) {
             App::abort(404);
         }
-        return view('address.edit', [
-            'address' => $address, 
+        return view('port.edit', [
+            'port' => $port, 
+            'hasSubmitBtn' => true, 
         ]);
     }
     
@@ -86,7 +88,17 @@ class PortController extends Controller {
                 'object' => $port,
             ]);
         } else {
-            return response()->redirectToAction('index');
+            return response()->redirectToRoute('list_port');
         }
+    }
+    
+    /**
+     * 
+     * @param integer $id
+     * @return Model
+     */
+    public function getModelObject($id)
+    {
+        return Port::find($id);
     }
 }

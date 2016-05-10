@@ -13,4 +13,8 @@
             {!!Form::text('address', $port->address, ['class' => 'form-control', 'id' => 'address'])!!}
         </div>
     </div>
+    
+    @if (isset($hasSubmitBtn) && $hasSubmitBtn) 
+    <input type="submit" class="btn btn-primary" value="Save" />
+    @endif
 {!! Form::close() !!}
