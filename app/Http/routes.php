@@ -42,8 +42,12 @@ Route::get('/agent/edit/{id}', ['as' => 'edit_agent', 'uses' => 'AgentController
 Route::post('/agent/save', ['as' => 'save_agent', 'uses' => 'AgentController@saveAction']);
 Route::delete('/agent/delete/{id}', ['as' => 'delete_agent', 'uses' => 'AgentController@deleteAction']);
 
+Route::get('/ship', ['as' => 'list_ship', 'uses' => 'ShipController@indexAction']);
+Route::get('/ship/new', ['as' => 'new_ship', 'uses' => 'ShipController@newAction']);
 Route::get('/ship/new_ajax', ['as' => 'new_ship_ajax', 'uses' => 'ShipController@ajaxNewAction']);
+Route::get('/ship/edit/{id}', ['as' => 'edit_ship', 'uses' => 'ShipController@editAction']);
 Route::post('/ship/save', ['as' => 'save_ship', 'uses' => 'ShipController@saveAction']);
+Route::delete('/ship/delete/{id}', ['as' => 'delete_ship', 'uses' => 'ShipController@deleteAction']);
 
 Route::get('/port/new_ajax', ['as' => 'new_port_ajax', 'uses' => 'PortController@ajaxNewAction']);
 Route::post('/port/save', ['as' => 'save_port', 'uses' => 'PortController@saveAction']);

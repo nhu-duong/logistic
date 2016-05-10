@@ -33,16 +33,17 @@ class ShipController extends Controller {
      *
      * @return Response
      */
-    public function index()
+    public function indexAction()
     {
-        $addresses = Address::all();
-        return view('address.index', ['addresses' => $addresses]);
+        $ships = Ship::paginate(8);
+        return view('ship.index', ['ships' => $ships]);
     }
     
     public function newAction()
     {
-        return view('address.edit', [
-            'add' => new Address()
+        return view('ship.edit', [
+            'ship' => new Ship(),
+            'hasSubmitBtn' => true,
         ]);
     }
     
@@ -52,12 +53,13 @@ class ShipController extends Controller {
      */
     public function editAction($id)
     {
-        $address = Address::find($id);
-        if (empty($address)) {
+        $ship = Ship::find($id);
+        if (empty($ship)) {
             App::abort(404);
         }
-        return view('address.edit', [
-            'address' => $address, 
+        return view('ship.edit', [
+            'ship' => $ship, 
+            'hasSubmitBtn' => true,
         ]);
     }
     
@@ -86,7 +88,7 @@ class ShipController extends Controller {
                 'object' => $ship,
             ]);
         } else {
-            return response()->redirectToAction('index');
+            return response()->redirectToRoute('list_ship');
         }
     }
     

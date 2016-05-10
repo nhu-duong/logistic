@@ -154,7 +154,7 @@
                     </a>
                     <ul id="demo" class="collapse">
                         <li>
-                            <a href="#">Ships</a>
+                            <a href="{{route('list_ship')}}">Ships</a>
                         </li>
                         <li>
                             <a href="#">Trucks</a>
