@@ -146,7 +146,7 @@
                     <a href="{{route('list_agent')}}"><i class="fa fa-fw fa-edit"></i> Agents</a>
                 </li>
                 <li>
-                    <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Products</a>
+                    <a href="{{route('list_item')}}"><i class="fa fa-fw fa-desktop"></i> Products</a>
                 </li>
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#demo">
