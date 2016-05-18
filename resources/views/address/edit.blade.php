@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('title')
 <div class="edit_order_title">
@@ -9,7 +9,7 @@
 @section('breadcrumb')
     <ol class="breadcrumb">
         <li class="active">
-            <i class="fa fa-dashboard"></i> Orders
+            <i class="fa fa-dashboard"></i> Address
         </li>
     </ol>
 @endsection

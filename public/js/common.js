@@ -26,6 +26,12 @@ $(document).ready(function(){
             deleteItem(deleteUrl, shouldBeRemovedSelector);
         });
     });
+    
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 });
 
 var deleteItem = function(url, shouldBeRemovedSelector) {

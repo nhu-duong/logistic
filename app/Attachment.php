@@ -40,6 +40,10 @@ class Attachment extends Model {
     
     public function getSize()
     {
+        $path = $this->getRealPath();
+        if (!file_exists($path)) {
+            return 'N/A';
+        }
         return \Illuminate\Support\Facades\File::size($this->getRealPath());
     }
     

@@ -7,4 +7,8 @@
             {!!Form::text('name', $ship->name, ['class' => 'form-control', 'id' => 'name'])!!}
         </div>
     </div>
+    
+    @if (isset($hasSubmitBtn) && $hasSubmitBtn) 
+    <input type="submit" class="btn btn-primary" value="Save" />
+    @endif
 {!! Form::close() !!}

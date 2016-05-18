@@ -31,7 +31,7 @@ class OrdersController extends Controller {
      * @return void
      */
     public function __construct() {
-//        $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -65,11 +65,11 @@ class OrdersController extends Controller {
             $order = Order::find($orderId);
         }
         
-        $agents = Agent::all()->lists('name', 'id');
-        $buyers = Address::all()->where('is_buyer', 1)->lists('name', 'id');
-        $sellers = Address::all()->where('is_seller', 1)->lists('name', 'id');
-        $ships = Ship::all()->lists('name', 'id');
-        $ports = Port::all()->lists('name', 'id');
+        $agents = Agent::all()->lists('name', 'id')->toArray();
+        $buyers = Address::all()->where('is_buyer', 1)->lists('name', 'id')->toArray();
+        $sellers = Address::all()->where('is_seller', 1)->lists('name', 'id')->toArray();
+        $ships = Ship::all()->lists('name', 'id')->toArray();
+        $ports = Port::all()->lists('name', 'id')->toArray();
         $containers = $order->containers()->get();
         return view('order.edit', [
             'orderId' => $orderId,
