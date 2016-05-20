@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone', 'password',
+        'name', 'email', 'phone', 'password', 'role_id',
     ];
 
     /**
@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public static function getRoles()
+    {
+        return [
+            self::ROLE_ADMIN => 'Admin',
+            self::ROLE_USER => 'Staff',
+        ];
+    }
 }

@@ -21,12 +21,16 @@
         </div>
     </div>
     <div class="form-group">
+        <label class="control-label col-sm-3" for="phone">Role:</label>
+        <div class="col-sm-9">
+            {!!Form::select('role_id', $user->getRoles(), $user->role_id, ['class' => 'form-control', 'id' => 'role_id'])!!}
+        </div>
+    </div>
+    <div class="form-group">
         <label class="control-label col-sm-3" for="phone">Password:</label>
         <div class="col-sm-9">
             {!!Form::text('password', '', ['class' => 'form-control', 'id' => 'password'])!!}
         </div>
     </div>
-    @if (isset($hasSubmitBtn) && $hasSubmitBtn) 
     <input type="submit" class="btn btn-primary" value="Save" />
-    @endif
 {!! Form::close() !!}

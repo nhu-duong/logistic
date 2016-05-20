@@ -205,6 +205,7 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'PDF'         => 'Barryvdh\Snappy\Facades\SnappyPdf',
     ],
 
 ];

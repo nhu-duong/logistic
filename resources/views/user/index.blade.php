@@ -31,6 +31,7 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Role</th>
                     <th>Phone</th>
                     <th>Actions</th>
                 </tr>
@@ -41,6 +42,7 @@
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
+                    <td>{{$roles[$user->role_id]}}</td>
                     <td>{{$user->phone}}</td>
                     <td style="padding: 0; text-align: center;"><div>
                             <a href="{{route('edit_user', ['userId' => $user->id])}}" class="label label-default"><i class="glyphicon glyphicon-edit"></i></a>
@@ -50,6 +52,6 @@
                 @endforeach
             </tbody>
         </table>
-        <a class="btn btn-primary" href="{{route('edit_user', ['userId' => 0])}}">New</a>
+        <a class="btn btn-primary" href="{{route('new_user', [])}}">New</a>
     </div>
 @endsection
