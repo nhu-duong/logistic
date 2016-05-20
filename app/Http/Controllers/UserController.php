@@ -41,14 +41,13 @@ class UserController extends Controller {
     public function indexAction()
     {
         $users = User::all();
-        return view('user.index', ['users' => $users]);
+        return view('user.index', ['users' => $users, 'roles' => User::getRoles()]);
     }
     
     public function newAction()
     {
         return view('user.edit', [
-            'add' => new User(),
-            'hasSubmitBtn' => true,
+            'user' => new User(),
         ]);
     }
     
@@ -64,15 +63,6 @@ class UserController extends Controller {
         }
         return view('user.edit', [
             'user' => $user, 
-            'hasSubmitBtn' => true,
-        ]);
-    }
-    
-    public function ajaxNewAction()
-    {
-        $ship = new Ship();
-        return view('ship.form', [
-            'ship' => $ship,
         ]);
     }
     
@@ -115,7 +105,7 @@ class UserController extends Controller {
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255' . (empty($id) ? '|unique:users' : ''),
-            'password' => (empty($id) ? 'required!' : '') . 'min:6',
+            'password' => (empty($id) ? 'required|' : '') . 'min:6',
         ]);
     }
     
@@ -127,6 +117,7 @@ class UserController extends Controller {
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
+            'role_id' => $data['role_id'],
         ];
         if (array_key_exists('password', $data)) {
             $result['password'] = bcrypt($data['password']);

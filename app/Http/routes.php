@@ -75,4 +75,5 @@ Route::get('/pdf/housebill/{id}', ['as' => 'print_housebill', 'uses' => 'PdfCont
 
 Route::get('/user', ['as' => 'list_user', 'uses' => 'UserController@indexAction']);
 Route::post('/user/save', ['as' => 'save_user', 'uses' => 'UserController@saveAction']);
+Route::get('/user/new', ['as' => 'new_user', 'uses' => 'UserController@newAction']);
 Route::get('/user/edit/{id}', ['as' => 'edit_user', 'uses' => 'UserController@editAction']);
