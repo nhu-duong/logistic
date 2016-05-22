@@ -66,8 +66,8 @@ class OrdersController extends Controller {
         }
         
         $agents = Agent::all()->lists('name', 'id')->toArray();
-        $buyers = Address::all()->where('is_buyer', 1)->lists('name', 'id')->toArray();
-        $sellers = Address::all()->where('is_seller', 1)->lists('name', 'id')->toArray();
+        $buyers = Address::where('is_buyer', 1)->lists('name', 'id')->toArray();
+        $sellers = Address::where('is_seller', 1)->lists('name', 'id')->toArray();
         $ships = Ship::all()->lists('name', 'id')->toArray();
         $ports = Port::all()->lists('name', 'id')->toArray();
         $containers = $order->containers()->get();
