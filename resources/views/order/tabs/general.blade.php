@@ -191,7 +191,8 @@
         </div>
     </div>
     <div style="clear: both; margin-left: 30px;">
-        <button type="submit" class="btn btn-default">Save</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{{route('list_orders')}}" class="btn btn-default">Cancel</a>
     </div>
 </div>
                 

@@ -33,4 +33,5 @@
         </div>
     </div>
     <input type="submit" class="btn btn-primary" value="Save" />
+    <a href="{{route('list_user')}}" class="btn btn-default">Cancel</a>
 {!! Form::close() !!}

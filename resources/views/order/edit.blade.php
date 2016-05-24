@@ -34,9 +34,9 @@
             <ul class="nav nav-tabs">
                 <li role="presentation" class="active">
                     <a href="#tabGeneralInformation" aria-controls="tabGeneralInformation" role="tab" data-toggle="tab">General Information</a></li>
+                @if($order->id)
                 <li role="presentation">
                     <a href="#tabContainers" aria-controls="tabContainers" role="tab" data-toggle="tab">Containers</a></li>
-                @if($order->id)
                 <li role="presentation">
                     <a href="#tabFiles" aria-controls="tabFiles" role="tab" data-toggle="tab">Files</a></li>
                 @endif
