@@ -2,49 +2,36 @@
 
 namespace App;
 
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
-
-    use Authenticatable,
-        CanResetPassword;
-
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
-
+class User extends Authenticatable
+{
+    const ROLE_ADMIN = 1;
+    const ROLE_USER = 2;
+    
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password', 'prenom', 'adresse', 'ville', 'phone', 'activation_code'];
+    protected $fillable = [
+        'name', 'email', 'phone', 'password', 'role_id',
+    ];
 
     /**
-     * The attributes excluded from the model's JSON form.
+     * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
-
-    public function accountIsActive($code) {
-        $user = User::where('activation_code', '=', $code)->first();
-        if (empty($user)) {
-            return false;
-        }
-        \Auth::login($user, true);
-        return true;
-    }
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
     
-    public function getByCode($code) {
-        return User::where('activation_code', '=', $code)->first();
+    public static function getRoles()
+    {
+        return [
+            self::ROLE_ADMIN => 'Admin',
+            self::ROLE_USER => 'Staff',
+        ];
     }
-    
 }

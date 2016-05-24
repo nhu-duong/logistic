@@ -2,26 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 
-abstract class Controller extends BaseController {
-
-    use DispatchesCommands,
-        ValidatesRequests;
+class Controller extends BaseController
+{
+    use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
     
-    public function getUserStatus()
+    public function deleteAction($id)
     {
-        $user = \Auth::user();
-        if (!empty($user)) {
-            return 1;
-//            if ($user->is_active) {
-//                $status = 1; // User is active
-//            } else {
-//                $status = 2; // User is not active
-//            }
+        $item = $this->getModelObject($id);
+        if (empty($item)) {
+            return response()->json(['result' => 0, 'errorCode' => 101, 'message' => 'Item not found!']);
         }
-        return 0;
+        $item->delete();
+        
+        return response()->json(['result' => 1, 'deletedId' => $id]);
     }
 }

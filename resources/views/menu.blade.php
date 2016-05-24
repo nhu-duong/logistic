@@ -9,10 +9,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">SB Admin</a>
+            <a class="navbar-brand" href="{{ url('/home') }}">SB Admin</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
+            <!--
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                 <ul class="dropdown-menu message-dropdown">
@@ -20,7 +21,7 @@
                         <a href="#">
                             <div class="media">
                                 <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    <img class="media-object" src="" alt="">
                                 </span>
                                 <div class="media-body">
                                     <h5 class="media-heading"><strong>John Smith</strong>
@@ -35,7 +36,7 @@
                         <a href="#">
                             <div class="media">
                                 <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    <img class="media-object" src="" alt="">
                                 </span>
                                 <div class="media-body">
                                     <h5 class="media-heading"><strong>John Smith</strong>
@@ -50,7 +51,7 @@
                         <a href="#">
                             <div class="media">
                                 <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    <img class="media-object" src="" alt="">
                                 </span>
                                 <div class="media-body">
                                     <h5 class="media-heading"><strong>John Smith</strong>
@@ -93,6 +94,22 @@
                     </li>
                 </ul>
             </li>
+            -->
+            @if (Auth::guest())
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a href="{{ url('/register') }}">Register</a></li>
+            @else
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->name }} <b class="caret"></b></a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ url('/logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
+            <!--
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -107,28 +124,29 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="{{ url('/logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
         </ul>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        @if (Auth::check())
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
-                    <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    <a href="{{route('home')}}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Orders</a>
+                    <a href="{{route('list_orders')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Orders</a>
                 </li>
                 <li>
-                    <a href="tables.html"><i class="fa fa-fw fa-table"></i> Customers</a>
+                    <a href="{{route('list_address')}}"><i class="fa fa-fw fa-table"></i> Customers</a>
                 </li>
                 <li>
-                    <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Agents</a>
+                    <a href="{{route('list_agent')}}"><i class="fa fa-fw fa-edit"></i> Agents</a>
                 </li>
                 <li>
-                    <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Products</a>
+                    <a href="{{route('list_item')}}"><i class="fa fa-fw fa-desktop"></i> Products</a>
                 </li>
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#demo">
@@ -136,17 +154,19 @@
                     </a>
                     <ul id="demo" class="collapse">
                         <li>
-                            <a href="#">Ships</a>
+                            <a href="{{route('list_ship')}}">Ships</a>
                         </li>
                         <li>
                             <a href="#">Trucks</a>
                         </li>
                         <li>
-                            <a href="#">Ports</a>
+                            <a href="{{route('list_port')}}">Ports</a>
                         </li>
+                        @can('manage_user')
                         <li>
-                            <a href="#">Users</a>
+                            <a href="{{route('list_user')}}">Users</a>
                         </li>
+                        @endcan
                         <li>
                             <a href="#">Codes</a>
                         </li>
@@ -154,5 +174,6 @@
                 </li>
             </ul>
         </div>
+        @endif
         <!-- /.navbar-collapse -->
     </nav>
