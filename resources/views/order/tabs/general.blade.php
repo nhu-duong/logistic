@@ -1,7 +1,7 @@
 <div id="tabGeneralInformation" role="tabpanel" class="tab-pane margin-top-10 active">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    {!! Form::hidden('master_bill_no', $order->master_bill_no, ['id' => 'master_bill_no']) !!}
-    {!! Form::hidden('house_bill_no', $order->house_bill_no, ['id' => 'house_bill_no']) !!}
+    {!! Form::hidden('master_bill_no', $order->master_bill_no, ['id' => 'master_bill_no', 'required' => 'required']) !!}
+    {!! Form::hidden('house_bill_no', $order->house_bill_no, ['id' => 'house_bill_no', 'required' => 'required']) !!}
     {!! Form::hidden('order_type', $order->order_type, ['id' => 'order_type']) !!}
     <div class="edit_order_form">
         <div class="form-group">

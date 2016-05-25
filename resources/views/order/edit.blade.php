@@ -29,7 +29,7 @@
 
 @section('content')
     <div class="edit_order_form_wrapper">
-        {!! Form::open(array('url' => route('save_order', ['orderId' => $orderId]), 'class' => 'form-horizontal')) !!}
+        {!! Form::open(array('url' => route('save_order', ['orderId' => $orderId]), 'class' => 'form-horizontal', 'id' => 'orderForm')) !!}
         <div id="tabs">
             <ul class="nav nav-tabs">
                 <li role="presentation" class="active">

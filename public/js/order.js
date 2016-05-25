@@ -7,6 +7,17 @@
 var myorder = {};
 myorder.init = function() {
     $('.delete-cont').click(this.deleteCont);
+    $('#orderForm').on('submit', function() {
+        if ($('#master_bill_no').val().length === 0) {
+            showError('Please enter master bill number');
+            return false;
+        }
+        if ($('#house_bill_no').val().length === 0) {
+            showError('Please enter house bill number');
+            return false;
+        }
+        return true;
+    });
 };
 
 myorder.deleteCont = function(event) {
