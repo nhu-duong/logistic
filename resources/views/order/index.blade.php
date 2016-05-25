@@ -6,6 +6,7 @@
         Orders <small>Search orders</small>
     </h1>
     <form name="search_order_form" method="GET" class="bill_no_form">
+        <button id="export_house_bill" class="btn btn-success" style="margin-right: 10px" >Export House Bill</button>
         <div class="pull-right bill_no_group">
             <input type="text" class="form-control" name="s" style="width: 250px;"
                    value="{{$keyword}}" placeholder="Enter house bill no or master bill no to search">
@@ -25,9 +26,10 @@
 
 @section('content')
     <div class="table-responsive">
-        <table class="table table-bordered table-hover table-striped">
+        <table id="table_orders" class="table table-bordered table-hover table-striped">
             <thead>
                 <tr>
+                    <th>&nbsp;</th>
                     <th>Master Bill</th>
                     <th>House Bill</th>
                     <th title="Shipped Onboard Date">ETD</th>
@@ -43,6 +45,7 @@
             <tbody>
                 @foreach ($orders as $order)
                 <tr>
+                    <td><input type="checkbox" value="{{$order->id}}" /></td>
                     <td>{{$order->master_bill_no}}</td>
                     <td>{{$order->house_bill_no}}</td>
                     <td>{{$order->shipped_onboard_date}}</td>
