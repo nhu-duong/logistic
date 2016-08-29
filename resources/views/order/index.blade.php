@@ -7,6 +7,7 @@
     </h1>
     <form name="search_order_form" method="GET" class="bill_no_form">
         <button id="export_house_bill" class="btn btn-success" style="margin-right: 10px" >Export House Bill</button>
+        <input value="{{ route('print_housebill', ['id' => 88888888]) }}" id="export_house_bill_link" type="hidden" />
         <div class="pull-right bill_no_group">
             <input type="text" class="form-control" name="s" style="width: 250px;"
                    value="{{$keyword}}" placeholder="Enter house bill no or master bill no to search">

@@ -17,7 +17,10 @@ myorder.exportHouseBill = function() {
         return false;
     }
     $('#table_orders input:checked').each(function() {
-        showMessage($(this).val());
+        var link = $('#export_house_bill_link').val();
+//        link.replace('88888888', $(this).val());
+        window.open(link.replace('88888888', $(this).val()), '_blank');
+//        showMessage($(this).val());
     });
     return false;
 };
