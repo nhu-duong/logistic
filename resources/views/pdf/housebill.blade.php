@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>{{ $fileName }}</title>
         <meta charset="utf-8">
         <style type="text/css">
             .header_title {

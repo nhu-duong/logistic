@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 //use Barryvdh\DomPDF\PDF;
 use App\Order;
 use PDF;
+use App\Visitors\Pdf\Order2HouseBill;
+use App\Visitors\Pdf\Order2ArrivalNotice;
 
 class PdfController extends Controller {
 
@@ -27,30 +29,45 @@ class PdfController extends Controller {
     public function houseBillAction($orderId)
     {
         $order = Order::find($orderId);
-        if (isset($_GET['test'])) {
-            return view('pdf.housebill', ['order' => $order, 'name' => 'Nhu', 'test' => 1]);
-        }
-        $pdf   = PDF::loadView('pdf.housebill', ['order' => $order, 'name' => 'Nhu', 'test' => 0]);
-
-        // Set encoding for pdf file
-        $pdf->setOption('encoding', 'utf-8');
-//        $pdf->setOption('margin-bottom', 20);
-//        $pdf->setOption('margin-top', 10);
-        $pdf->setOption('print-media-type', true);
-        $pdf->setOption('footer-spacing', 2);
-        $pdf->setOption('header-spacing', 2);
-
-//        $path = storage_path('test_' . time() . '.pdf');
-        // Define file path: should define in config file
-//        $destinationPath = Config::get('paths.ftp_data_folder');
-//        $fileName        = '' . $visitee->user_id . '_' . 'FB' . $visitee->createAt;
-//        $fileName .= '_' . Carbon::now()->format('mdY_His') . ".pdf";
-//        $path            = $destinationPath . '/' . $fileName;
-        return $pdf->download('housebill.pdf');
+        $engine = new Order2HouseBill();
+        $pdf = $engine->accept($order);
+        $fileName = $engine->getFileName($order);
+        return $pdf->stream($fileName);
         
         
 //        $pdf = App::make('dompdf.wrapper');
 //        $pdf->loadView('pdf.housebill', ['order' => $order, 'name' => 'Nhu', 'test' => 0]);
 //        return $pdf->stream();
+    }
+    
+    /**
+     * Export an order report by type
+     * 
+     * @param string $type
+     * @param integer $orderId
+     */
+    public function exportAction($type, $orderId)
+    {
+        $order = Order::find($orderId);
+        $engine = $this->getEngineByType($type);
+        if (empty($engine) || empty($order)) {
+            abort(404);
+        }
+        $pdf = $engine->accept($order);
+        $fileName = $engine->getFileName($order);
+        return $pdf->stream($fileName);
+    }
+    
+    protected function getEngineByType($type)
+    {
+        switch ($type) {
+            case 'housebill':
+                return new Order2HouseBill();
+            case 'arrivalnotice':
+                return new Order2ArrivalNotice();
+            default:
+                break;
+        }
+        return null;
     }
 }

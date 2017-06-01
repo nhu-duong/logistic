@@ -72,6 +72,7 @@ Route::get('/attachment/download/{id}', ['as' => 'download_attachment', 'uses' =
 Route::delete('/attachment/delete/{id}', ['as' => 'delete_attachment', 'uses' => 'AttachmentsController@deleteAction']);
 
 Route::get('/pdf/housebill/{id}', ['as' => 'print_housebill', 'uses' => 'PdfController@houseBillAction']);
+Route::get('/pdf/export/{type}/{id}', ['as' => 'pdf_export', 'uses' => 'PdfController@exportAction']);
 
 Route::get('/user', ['as' => 'list_user', 'uses' => 'UserController@indexAction']);
 Route::post('/user/save', ['as' => 'save_user', 'uses' => 'UserController@saveAction']);
