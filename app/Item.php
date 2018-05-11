@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Item extends Model {
+class Item extends BaseModel 
+{
 
     /**
      * The database table used by the model.
