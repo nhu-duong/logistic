@@ -28,5 +28,6 @@
     
     @if (isset($hasSubmitBtn) && $hasSubmitBtn) 
     <input type="submit" class="btn btn-primary" value="Save" />
+    <a href="{{route('list_agent')}}" class="btn btn-default">Cancel</a>
     @endif
 {!! Form::close() !!}
