@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return redirect('/home');
 });
+
+Route::get('/products', 'ProductController@index');
+Route::get('/products/purchase', 'ProductController@purchase');
+Route::get('/products/activate', 'ProductController@activate');
+
 Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::post('/home/add-record', 'HomeController@postAddRecord');
 Route::get('/home/add-record', 'HomeController@getAddRecord');
