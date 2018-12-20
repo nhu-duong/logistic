@@ -158,6 +158,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        LaravelQRCode\Providers\QRCodeServiceProvider::class, 
     ],
 
     /*
@@ -208,6 +209,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'PDF'         => 'Barryvdh\Snappy\Facades\SnappyPdf',
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'QRCode' => LaravelQRCode\Facades\QRCode::class, 
     ],
 
 ];
